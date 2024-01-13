@@ -1,4 +1,8 @@
 module.exports = {
+  extends: [
+    'standard',
+    'standard-jsx'
+  ],
   root: true,
   env: { browser: true, es2020: true },
   extends: [
