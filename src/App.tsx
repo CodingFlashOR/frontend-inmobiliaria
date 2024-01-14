@@ -1,17 +1,13 @@
-import { Route, Routes } from 'react-router-dom'
-import Home from './pages/Home.tsx'
-import Alquilar from './pages/Alquilar.tsx'
+// App.tsx
+import { AuthProvider } from './context/AuthContext';
+import Router from './routes/Router';
 
 function App() {
-
   return (
-    <> 
-    <Routes>
-      <Route path="/" element={<Home/>}/>
-      <Route path="/alquilar" element={<Alquilar/>}/>
-    </Routes>
-    </>
-  )
+    <AuthProvider>
+      <Router />
+    </AuthProvider>
+  );
 }
 
-export default App
+export default App;
