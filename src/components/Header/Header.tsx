@@ -36,7 +36,7 @@ export default function Header() {
       ></div>
 
       <div
-        className={`bg-white min-h-screen transition-all duration-300  fixed top-0 left-0 ${
+        className={`bg-white min-h-screen transition-all duration-300 fixed top-0 left-0 ${
           open ? "sm:w-80 w-52" : "w-0"
         }`}
       >
