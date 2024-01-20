@@ -2,7 +2,7 @@ import { useState } from 'react'
 import BurgerButton from './BurgerButton'
 import SideBar from './SideBar'
 
-const SvgIcon = () => (
+const LupaIcon = () => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
     fill='none'
@@ -28,7 +28,7 @@ export default function Header () {
         <BurgerButton setOpen={setOpen} />
         <h1 className='flex-grow text-white text-xl ml-2'>Inmobiliaria</h1>
         <button className='flex items-center ml-2'>
-          <SvgIcon />
+          <LupaIcon />
         </button>
       </div>
 
