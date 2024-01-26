@@ -24,7 +24,7 @@ export default function Header () {
 
   return (
     <>
-      <div className='flex items-center justify-between bg-amarillo h-16 px-2'>
+      <div className='flex items-center justify-between bg-amarillo h-16 px-2 lg:hidden'>
         <BurgerButton setOpen={setOpen} />
         <h1 className='flex-grow text-white text-xl ml-2'>Inmobiliaria</h1>
         <button className='flex items-center ml-2'>
@@ -42,6 +42,21 @@ export default function Header () {
         setOpen={setOpen}
         open={open}
       />
+      <div className='hidden lg:flex items-center justify-between'>
+        <div>
+          <a href='/' className='flex items-center gap-2'>
+            <img className='w-20' src='https://i.ibb.co/3YpL3hD/logo-Editada.png' alt='Logo' />
+            <p className='xl:text-4xl text-2xl font-serif '>Inmobiliaria</p>
+          </a>
+        </div>
+        <nav className=' xl:text-2xl text-xl flex gap-6 text-amarillo'>
+          <a href='/alquiler'>ALQUILAR</a>
+          <a href='/comprar'>COMPRAR</a>
+          <a href='/nosotros'>NOSOTROS</a>
+          <a href='/login'>INICIAR SESIÓN</a>
+        </nav>
+
+      </div>
     </>
   )
 }

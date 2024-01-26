@@ -1,8 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
+  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        serif: ['Lora', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif']
+      },
       colors: {
         amarillo: {
           DEFAULT: '#DCB416',
@@ -15,7 +18,7 @@ export default {
           600: '#D2A212',
           700: '#B38C0F',
           800: '#947708',
-          900: '#7A5F06',
+          900: '#7A5F06'
         },
         'amarillo-cream': {
           DEFAULT: '#FFF0A5',
@@ -28,10 +31,10 @@ export default {
           600: '#FFE580',
           700: '#FFD855',
           800: '#FFCC2B',
-          900: '#FFBF00',
-        },
-      },
-    },
+          900: '#FFBF00'
+        }
+      }
+    }
   },
-  plugins: [],
+  plugins: []
 }
