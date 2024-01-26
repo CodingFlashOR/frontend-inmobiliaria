@@ -11,7 +11,7 @@ interface SideBarProps {
 const SideBar: React.FC<SideBarProps> = ({ setOpen, open }) => {
   return (
     <div
-      className={`bg-white min-h-screen fixed top-0 left-0 transition-all duration-300  ${
+      className={`bg-white min-h-screen fixed top-0 left-0 transition-all duration-300 md:hidden ${
       open ? 'sm:w-80 w-52' : 'w-0'
     }`}
     >
