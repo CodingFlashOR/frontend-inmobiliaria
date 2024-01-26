@@ -1,6 +1,4 @@
-
-
-export default function Usuario() {
+export default function Usuario () {
   return (
     <div>Usuario</div>
   )
