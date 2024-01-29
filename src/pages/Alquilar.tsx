@@ -1,5 +1,10 @@
+import Layout from '../layouts/Layout'
+
 export default function Alquilar () {
   return (
-    <div>Alquilar</div>
+    <Layout>
+      <div>Alquilar</div>
+
+    </Layout>
   )
 }
