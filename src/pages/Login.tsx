@@ -1,5 +1,10 @@
+import Layout from '../layouts/Layout'
+
 export default function Login () {
   return (
-    <div>Login</div>
+    <Layout>
+
+      <div>Login</div>
+    </Layout>
   )
 }
