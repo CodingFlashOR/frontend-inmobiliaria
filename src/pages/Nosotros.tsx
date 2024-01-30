@@ -1,5 +1,10 @@
+import Layout from '../layouts/Layout'
+
 export default function Nosotros () {
   return (
-    <div>Nosotros</div>
+    <Layout>
+
+      <div>Nosotros</div>
+    </Layout>
   )
 }
