@@ -1,5 +1,10 @@
+import Layout from '../layouts/Layout'
+
 export default function NotFound () {
   return (
-    <div>NotFound</div>
+    <Layout>
+
+      <div>NotFound</div>
+    </Layout>
   )
 }
