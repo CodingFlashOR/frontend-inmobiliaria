@@ -1,5 +1,10 @@
+import Layout from '../layouts/Layout'
+
 export default function Usuario () {
   return (
-    <div>Usuario</div>
+    <Layout>
+
+      <div>Usuario</div>
+    </Layout>
   )
 }
