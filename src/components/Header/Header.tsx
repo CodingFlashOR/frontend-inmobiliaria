@@ -49,7 +49,7 @@ export default function Header ({ open, setOpen }: HeaderProps) {
         <div>
           <a href='/' className='flex items-center gap-2'>
             <img className='w-20' src='https://i.ibb.co/3YpL3hD/logo-Editada.png' alt='Logo' />
-            <p className='xl:text-4xl text-2xl font-serif '>Inmobiliaria</p>
+            <p className='xl:text-4xl text-2xl font-serif font-bold'>Inmobiliaria</p>
           </a>
         </div>
         <nav className=' xl:text-2xl text-xl flex gap-6 text-amarillo'>

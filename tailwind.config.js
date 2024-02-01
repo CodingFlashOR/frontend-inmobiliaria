@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
+  darkMode: 'class', // Habilita el modo oscuro
   theme: {
     extend: {
       fontFamily: {
@@ -32,6 +33,19 @@ export default {
           700: '#FFD855',
           800: '#FFCC2B',
           900: '#FFBF00'
+        },
+        'amarillo-oscuro': {
+          DEFAULT: '#A68810',
+          50: '#FDF8E2',
+          100: '#FAF0C5',
+          200: '#F5E389',
+          300: '#F0D64C',
+          400: '#E5C625',
+          500: '#DCB416',
+          600: '#D2A212',
+          700: '#B38C0F',
+          800: '#947708',
+          900: '#7A5F06'
         }
       }
     }
