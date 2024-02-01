@@ -22,7 +22,7 @@ export default function Footer () {
           icono={ContactoIcon}
         />
       </div>
-      <div className='lg:flex flex-row h-28 bg-amarillo justify-between px-10 items-center hidden '>
+      <div className='lg:flex flex-row h-28 bg-amarillo justify-between  px-14 items-center hidden '>
         <div className='text-xl'>
           <p>Dirección</p>
           <p>Teléfono</p>
@@ -32,7 +32,7 @@ export default function Footer () {
           <WhatsappIcon />
           <InstagramIcon />
         </div>
-        <h3 className='text-2xl'>Inmobiliaria</h3>
+        <h3 className='xl:text-4xl text-2xl font-serif font-bold text-amarillo-oscuro'>Inmobiliaria</h3>
       </div>
     </footer>
   )
