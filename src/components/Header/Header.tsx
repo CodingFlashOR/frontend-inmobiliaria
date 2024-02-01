@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import BurgerButton from './BurgerButton'
 import SideBar from './SideBar'
 
@@ -19,9 +18,12 @@ const LupaIcon = () => (
   </svg>
 )
 
-export default function Header () {
-  const [open, setOpen] = useState(false)
+interface HeaderProps {
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
+export default function Header ({ open, setOpen }: HeaderProps) {
   return (
     <>
       <div className='flex items-center justify-between bg-amarillo h-16 px-2 lg:hidden'>
@@ -36,6 +38,7 @@ export default function Header () {
         className={`bg-gray-600/50 min-h-screen w-full fixed top-0 left-0 backdrop-blur-sm transition-all duration-300 ${
           open ? '' : 'hidden'
         }`}
+        style={{ zIndex: 9998 }}
       />
 
       <SideBar
