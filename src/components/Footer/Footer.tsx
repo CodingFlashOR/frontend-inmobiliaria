@@ -1,5 +1,5 @@
 import Icono from './Icono'
-import { AlquilarIcon, ComprarIcon, ContactoIcon, HomeIcon } from './Icons'
+import { AlquilarIcon, ComprarIcon, ContactoIcon, HomeIcon, FacebookIcon, WhatsappIcon, InstagramIcon } from './Icons'
 
 export default function Footer () {
   return (
@@ -21,7 +21,18 @@ export default function Footer () {
           titulo='Contacto'
           icono={ContactoIcon}
         />
-
+      </div>
+      <div className='lg:flex flex-row h-28 bg-amarillo justify-between  px-14 items-center hidden '>
+        <div className='text-xl'>
+          <p>Dirección</p>
+          <p>Teléfono</p>
+        </div>
+        <div className='flex gap-4'>
+          <FacebookIcon />
+          <WhatsappIcon />
+          <InstagramIcon />
+        </div>
+        <h3 className='xl:text-4xl text-2xl font-serif font-bold text-amarillo-oscuro'>Inmobiliaria</h3>
       </div>
     </footer>
   )
