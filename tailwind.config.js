@@ -1,5 +1,7 @@
-/** @type {import('tailwindcss').Config} */
-export default {
+// tailwind.config.js
+import withMT from '@material-tailwind/react/utils/withMT'
+
+export default withMT({
   content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'class', // Habilita el modo oscuro
   theme: {
@@ -51,4 +53,4 @@ export default {
     }
   },
   plugins: []
-}
+})
