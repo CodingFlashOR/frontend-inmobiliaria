@@ -76,7 +76,7 @@ img {
     .container-images {
         width: 100%;
         height: 100%;
-        border-radius: 20px;
+        border-radius: 10px;
         border: 1px solid #eee;
         overflow: hidden;
       }
@@ -102,8 +102,20 @@ ul {
     display: inline-block;
   }
   
-img{
-  margin-top: -250px;
+.imagen{
+  margin-top: -50px;
+  height: auto; 
+  object-fit: cover;
 }
  
+@media (min-width: 640px) { 
+  .imagen{
+    margin-top: -70px;
+  }
+ }
 
+ @media (min-width: 1024px) { 
+  .imagen{
+    margin-top: -170px;
+  }
+ }

@@ -16,6 +16,12 @@ export default function Carousel () {
         behavior: 'smooth'
       })
     }
+
+    const timer = setTimeout(() => {
+      setCurrentIndex((currentIndex + 1) % data.length)
+    }, 3000)
+
+    return () => clearTimeout(timer)
   }, [currentIndex])
 
   const goToSlide = (indice : number) => {
@@ -37,15 +43,15 @@ export default function Carousel () {
   }
 
   return (
-    <div className='h-20 w-full sm:w-3/4 m-auto main-container'>
+    <div className='h-20 lg:h-40 w-full sm:w-96 md:w-3/4 m-auto sm:mt-5 main-container'>
       <div className='slider-container'>
         <div
-          className='leftArrow text-sm'
+          className='leftArrow text-sm text-amarillo-oscuro'
           onClick={() => scrollToImage('prev')}
         >❬
         </div>
         <div
-          className='rightArrow text-sm'
+          className='rightArrow text-sm text-amarillo-oscuro'
           onClick={() => scrollToImage('next')}
         >❭
         </div>
@@ -57,7 +63,7 @@ export default function Carousel () {
                   <li key={item.id}>
 
                     <div className=''>
-                      <img src={item.imgUrl} className='' />
+                      <img src={item.imgUrl} className='imagen' />
                     </div>
 
                   </li>
@@ -70,7 +76,7 @@ export default function Carousel () {
           {
             data.map((_, idx) => (
               <div
-                key={idx} className={`dot-container-item ${idx === currentIndex ? 'active' : ''}`}
+                key={idx} className={`dot-container-item text-amarillo ${idx === currentIndex ? 'active text-amarillo-oscuro' : ''}`}
                 onClick={() => goToSlide(idx)}
               >
                 &#9865;
