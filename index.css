@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+::-webkit-scrollbar {
+    width: 0px;  
+    height: 0px; 
+}
+
+
+body {
+    overflow-y: scroll;
+    margin-bottom: 50px;
+    height: 100vh;
+}
