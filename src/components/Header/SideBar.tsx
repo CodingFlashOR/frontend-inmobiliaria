@@ -27,7 +27,7 @@ const SideBar: React.FC<SideBarProps> = ({ setOpen, open }) => {
   return (
     <div
       ref={sidebarRef}
-      className={`bg-white min-h-screen fixed top-0 left-0 transition-all duration-300 md:hidden ${
+      className={`bg-white min-h-screen fixed top-0 left-0 transition-all duration-300 lg:hidden ${
         open ? 'sm:w-80 w-52' : 'w-0'
       }`}
       style={{ zIndex: 9999 }} // Añade esta línea
@@ -38,8 +38,8 @@ const SideBar: React.FC<SideBarProps> = ({ setOpen, open }) => {
         }`}
       />
       <div
-        className={`flex flex-col sm:pl-6 pl-4 gap-5 ${
-          open ? 'opacity-100 visible delay-150' : 'opacity-0 invisible delay-0'
+        className={`flex flex-col sm:pl-6 pl-4 gap-5  ${
+          open ? 'opacity-100 visible delay-150' : 'opacity-0 invisible delay-0 '
         }`}
       >
         <Perfil PerfilName='Nacho' open={open} />

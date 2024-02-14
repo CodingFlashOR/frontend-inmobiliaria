@@ -26,7 +26,7 @@ interface HeaderProps {
 export default function Header ({ open, setOpen }: HeaderProps) {
   return (
     <>
-      <div className='flex items-center justify-between bg-amarillo h-16 px-2 lg:hidden'>
+      <div className='flex items-center justify-between bg-amarillo h-16 px-2 lg:hidden sticky top-0 z-50'>
         <BurgerButton setOpen={setOpen} />
         <h1 className='flex-grow text-white text-xl ml-2'>Inmobiliaria</h1>
         <button className='flex items-center ml-2'>
@@ -35,7 +35,7 @@ export default function Header ({ open, setOpen }: HeaderProps) {
       </div>
 
       <div
-        className={`bg-gray-600/50 min-h-screen w-full fixed top-0 left-0 backdrop-blur-sm transition-all duration-300 ${
+        className={`bg-gray-600/50 min-h-screen w-full lg:hidden fixed top-0 left-0 backdrop-blur-sm transition-all duration-300 ${
           open ? '' : 'hidden'
         }`}
         style={{ zIndex: 9998 }}
