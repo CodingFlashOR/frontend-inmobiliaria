@@ -5,7 +5,6 @@ export default function DetalleCompras () {
   const { id } = useParams()
   return (
     <Layout>
-
       <div>{id}</div>
     </Layout>
   )

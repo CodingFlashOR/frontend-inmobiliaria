@@ -1,9 +1,10 @@
 export default function InfoHome () {
   return (
     <div>
-      <div className='w-full flex flex-col lg:flex-row lg:hidden sm:w-96 sm:m-auto h-52 sm:h-72 mt-5 text-left sm:mt-14 p-2 '>
-
-        <img src='https://media.istockphoto.com/id/495983998/es/foto/entregar-las-llaves-de-la-casa.jpg?s=612x612&w=0&k=20&c=qr5tiP6TmTuxu_U22BRzdJeadomiSFyP6hm3zpIMSSU=' alt='Persona recibiendo unas llaves' className='w-full rounded-sm h-full lg:hidden' />
+      <div className='w-full max-w-80 container m-auto flex flex-col lg:flex-row lg:hidden sm:w-96 sm:m-auto  mt-5 text-left sm:mt-14 p-2'>
+        <div className='w-54 h-44 m-auto'>
+          <img src='https://media.istockphoto.com/id/495983998/es/foto/entregar-las-llaves-de-la-casa.jpg?s=612x612&w=0&k=20&c=qr5tiP6TmTuxu_U22BRzdJeadomiSFyP6hm3zpIMSSU=' alt='Persona recibiendo unas llaves' className='w-full rounded-sm h-full lg:hidden' />
+        </div>
 
         <div className='p-2 lg:hidden'>
           <h2 className=' font-serif text-md sm:text-lg font-bold'>
