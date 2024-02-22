@@ -59,7 +59,7 @@ export default function Carousel () {
   }
 
   return (
-    <div className='h-20 lg:h-40 w-full sm:w-4/5 md:w-3/4 lg:w-full m-auto main-container mt-2 sm:mt-5'>
+    <div className='h-20 lg:h-60 w-full sm:w-4/5 md:w-3/4 lg:w-full m-auto main-container mt-2 sm:mt-5'>
       <div className='slider-container'>
         <div
           className='leftArrow text-sm text-amarillo-oscuro'
