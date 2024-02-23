@@ -34,7 +34,7 @@ export default function InfoCards ({ Titulo, Texto, Propiedades, SvgContentChico
       `}
       </style>
 
-      <div className='bg-amarillo-500/30 m-auto rounded-xl p-2 w-full max-w-80 lg-max-w-none container flex md:w-4/5 lg:w-full flex-col lg:flex-col sm:w-96 sm:m-auto mt-5 text-left sm:mt-14'>
+      <div className='bg-amarillo-500/30 m-auto rounded-xl py-6 lg:p-8 w-full max-w-80 lg-max-w-none container flex md:w-4/5g lg:w-full flex-col lg:flex-col sm:w-96 sm:m-auto mt-5 text-left sm:mt-14'>
         <div className='flex flex-col justify-end lg:flex-col lg:p-6'>
           <div className='flex items-end m-2 lg:hidden '>
 
@@ -56,8 +56,8 @@ export default function InfoCards ({ Titulo, Texto, Propiedades, SvgContentChico
         <div className='flex gap-2 flex-col lg:flex-row w-full items-center  justify-around'>
           {
         Propiedades.map((propiedad) => (
-          <div key={propiedad.id} className='bg-white flex text-md justify-between lg:w-62 mt-5 lg:mt-10'>
-            <div className='px-4 py-2 flex-grow flex flex-col justify-between'>
+          <div key={propiedad.id} className='bg-white flex text-md justify-between shadow-lg lg:w-62 mt-5 lg:mt-10 xl:w-1/4'>
+            <div className='px-4 lg:py-2 xl:py-1 flex-grow flex flex-col justify-between'>
               <h3 className='text-lg font-serif font-bold lg:text-sm'>{propiedad.Nombre}</h3>
               <div className='text-xs'>
                 <h4 className=''>Zona: {propiedad.Zona}</h4>

@@ -2,6 +2,7 @@ import Layout from '../layouts/Layout'
 import Carousel from '../components/Home/Carousel/Carousel'
 import InfoHome from '../components/Home/MainBanner/MainBanner'
 import InfoCards from '../components/Home/InfoCards/InfoCards'
+import Nosotros from '../components/Home/Nosotros/Nosotros'
 
 const MiIconoAlquilerGrande = () => (
   <svg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 50 54' strokeWidth='1.5' stroke='#DCB416' className='w-40' style={{ filter: 'drop-shadow(1px 0px 0px rgba(220, 180, 22, 0.1))' }}>
@@ -88,9 +89,9 @@ export default function Home () {
     <Layout>
       <Carousel />
       <InfoHome />
-      <div>
+      <div className='lg:mb-20 mb-5'>
         <InfoCards
-          Titulo='Alquiler' Texto='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae tenetur dignissimos consequuntur beatae, impedit dolor minus porro perferendis! Optio, dignissimos libero aut recusandae repellat in dicta eos modi exercitationem explicabo. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae tenetur dignissimos consequuntur beatae, impedit dolor minus porro perferendis! Optio, dignissimos libero aut recusandae repellat in dicta eos modi exercitationem explicabo.' Propiedades={[
+          Titulo='Alquiler' Texto='Explora nuestras exclusivas propiedades de alquiler, diseñadas para adaptarse a tu estilo de vida. Desde departamentos urbanos hasta hogares espaciosos, cada opción refleja nuestro compromiso con la comodidad y la calidad. Experimenta un proceso sin complicaciones con nuestra guía personalizada, donde la claridad y la confiabilidad convergen para hacer de tu búsqueda de alquiler una experiencia fácil y satisfactoria.' Propiedades={[
             {
               Nombre: 'Departamento 1',
               Zona: 'Coso',
@@ -120,7 +121,7 @@ export default function Home () {
           SvgContentGrande={MiIconoAlquilerGrande}
         />
         <InfoCards
-          Titulo='Comprar' Texto='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae tenetur dignissimos consequuntur beatae, impedit dolor minus porro perferendis! Optio, dignissimos libero aut recusandae repellat in dicta eos modi exercitationem explicabo. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae tenetur dignissimos consequuntur beatae, impedit dolor minus porro perferendis! Optio, dignissimos libero aut recusandae repellat in dicta eos modi exercitationem explicabo.' Propiedades={[
+          Titulo='Comprar' Texto='Descubre la experiencia de compra de viviendas con nosotros, donde cada propiedad es una puerta a tu futuro. Nuestro proceso intuitivo y personalizado te guía hacia la elección perfecta. Incluyendo desde departamentos modernos hasta elegantes residencias, cada elección refleja nuestro compromiso con la calidad y la comodidad de nuestros clientes. Haz de tu búsqueda de hogar una travesía emocionante y sin complicaciones con nuestra orientación experta.' Propiedades={[
             {
               Nombre: 'Departamento 1',
               Zona: 'Coso',
@@ -149,6 +150,7 @@ export default function Home () {
           SvgContentChico={MiIconoCompraChico}
           SvgContentGrande={MiIconoCompraGrande}
         />
+        <Nosotros />
       </div>
 
     </Layout>
