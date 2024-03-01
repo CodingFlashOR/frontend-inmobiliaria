@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import { data, DataType } from './data'
 
 import './Carousel.css'
@@ -7,14 +7,14 @@ export default function Carousel () {
   const listRef = useRef<HTMLUListElement>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  const scrollStep = (now: number, listNode: HTMLUListElement, startScroll: number, scrollLeft: number, scrollDuration: number, startTime: number) => {
+  const scrollStep = useCallback((now: number, listNode: HTMLUListElement, startScroll: number, scrollLeft: number, scrollDuration: number, startTime: number) => {
     const elapsed = now - startTime
     const t = Math.min(elapsed / scrollDuration, 1)
     listNode.scrollLeft = startScroll + (scrollLeft - startScroll) * t
     if (t < 1) {
       window.requestAnimationFrame((now) => scrollStep(now, listNode, startScroll, scrollLeft, scrollDuration, startTime))
     }
-  }
+  }, [])
 
   useEffect(() => {
     const listNode = listRef.current
@@ -30,7 +30,7 @@ export default function Carousel () {
 
       window.requestAnimationFrame((now) => scrollStep(now, listNode, startScroll, scrollLeft, scrollDuration, startTime))
     }
-  }, [currentIndex])
+  }, [currentIndex, scrollStep])
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -59,7 +59,7 @@ export default function Carousel () {
   }
 
   return (
-    <div className='h-20 lg:h-60 w-full sm:w-4/5 md:w-3/4 lg:w-full m-auto main-container mt-2 sm:mt-5'>
+    <div className='h-20 lg:h-60 w-full sm:w-4/5 md:w-3/4 lg:w-full lg:px-4 m-auto main-container mt-2 sm:mt-5'>
       <div className='slider-container'>
         <div
           className='leftArrow text-sm text-amarillo-oscuro'
