@@ -1,4 +1,4 @@
-export default function CardInmueble () {
+export default function CardProperty () {
   return (
     <div className='p-2 shadow-xl  max-w-96'>
       <h3 className=' mt-6 ml-6'>Titulo</h3>
