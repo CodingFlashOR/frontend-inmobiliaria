@@ -1,8 +1,8 @@
 import Layout from '../layouts/Layout'
-import Carousel from '../components/Home/Carousel/Carousel'
-import InfoHome from '../components/Home/MainBanner/MainBanner'
-import InfoCards from '../components/Home/InfoCards/InfoCards'
-import Nosotros from '../components/Home/Nosotros/Nosotros'
+import Carousel from '../components/Carousel/Carousel'
+import InfoHome from '../components/MainBanner/MainBanner'
+import InfoCards from '../components/InfoCards/InfoCards'
+import AboutUs from '../components/AboutUs/AboutUs'
 
 const MiIconoAlquilerGrande = () => (
   <svg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 50 54' strokeWidth='1.5' stroke='#DCB416' className='w-40' style={{ filter: 'drop-shadow(1px 0px 0px rgba(220, 180, 22, 0.1))' }}>
@@ -150,7 +150,7 @@ export default function Home () {
           SvgContentChico={MiIconoCompraChico}
           SvgContentGrande={MiIconoCompraGrande}
         />
-        <Nosotros />
+        <AboutUs />
       </div>
 
     </Layout>
