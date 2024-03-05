@@ -1,12 +1,12 @@
 import Layout from '../layouts/Layout'
 import Carousel from '../components/Carousel/Carousel'
-import CardInmueble from '../components/CardInmueble/CardInmueble'
+import CardProperty from '../components/CardProperty/CardProperty'
 
-export default function Alquilar () {
+export default function ToRent () {
   return (
     <Layout>
       <Carousel />
-      <CardInmueble />
+      <CardProperty />
     </Layout>
   )
 }

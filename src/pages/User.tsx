@@ -1,6 +1,6 @@
 import Layout from '../layouts/Layout'
 
-export default function Usuario () {
+export default function User () {
   return (
     <Layout>
 

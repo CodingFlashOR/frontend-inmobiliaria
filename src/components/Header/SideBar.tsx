@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react'
-import Perfil from './Perfil'
+import Profile from './Profile'
 import ListItems from './ListItems'
 import { PerfilIcon, FlechaIcon, CorazonIcon, CampanaIcon, RelojIcon, EngranajeIcon, AyudaIcon, AcercaDeIcon, LlaveIcon } from './Icons'
 
@@ -42,7 +42,7 @@ const SideBar: React.FC<SideBarProps> = ({ setOpen, open }) => {
           open ? 'opacity-100 visible delay-150' : 'opacity-0 invisible delay-0 '
         }`}
       >
-        <Perfil PerfilName='Nacho' open={open} />
+        <Profile PerfilName='Nacho' open={open} />
 
         <div className={`border-t border-gray-600 sm:w-56 w-32 h-0.5 my-4 ${open ? 'opacity-100 visible delay-150' : 'opacity-0 invisible delay-0'}`} />
 

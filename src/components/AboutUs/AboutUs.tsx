@@ -1,4 +1,4 @@
-export default function Nosotros () {
+export default function AboutUs () {
   return (
 
     <div className='mt-8 flex flex-col gap-6 p-4 w-full max-w-80 lg-max-w-none m-auto md:w-1/2 md:m-auto md:mt-8 lg:w-auto'>
