@@ -6,7 +6,7 @@ interface ListItemsProps {
   open: boolean
 }
 
-export default function ListItems ({ icono: Icono, texto, url, open }: ListItemsProps) {
+export default function ListItems ({ icono: Icono, texto, url }: ListItemsProps) {
   return (
     <a
       href={url}
