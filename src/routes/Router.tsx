@@ -1,14 +1,14 @@
 import { Route, Routes } from 'react-router-dom'
 import Home from '../pages/Home'
-import Alquilar from '../pages/Alquilar'
-import DetalleAlquiler from '../pages/DetalleAlquiler'
-import Usuario from '../pages/Usuario'
+import ToRent from '../pages/ToRent'
+import DetailRent from '../pages/DetailRent'
+import User from '../pages/User'
 import PrivateRoute from './PrivateRoute'
 import NotFound from '../pages/NotFound'
-import Comprar from '../pages/Comprar'
-import Nosotros from '../pages/Nosotros'
+import Buying from '../pages/Buying'
+import AboutUs from '../pages/AboutUs'
 import Login from '../pages/Login'
-import DetalleCompras from '../pages/DetalleCompras'
+import DetailPurchases from '../pages/DetailPurchases'
 
 export default function Router () {
   return (
@@ -16,19 +16,19 @@ export default function Router () {
     <Routes>
       <Route path='/' element={<Home />} />
 
-      <Route path='/alquiler' element={<Alquilar />} />
+      <Route path='/alquiler' element={<ToRent />} />
 
-      <Route path='/alquiler/:id' element={<DetalleAlquiler />} />
+      <Route path='/alquiler/:id' element={<DetailRent />} />
 
-      <Route path='/comprar' element={<Comprar />} />
+      <Route path='/comprar' element={<Buying />} />
 
-      <Route path='/comprar/:id' element={<DetalleCompras />} />
+      <Route path='/comprar/:id' element={<DetailPurchases />} />
 
-      <Route path='/nosotros' element={<Nosotros />} />
+      <Route path='/nosotros' element={<AboutUs />} />
 
       <Route path='/login' element={<Login />} />
 
-      <Route path='/user' element={<PrivateRoute element={<Usuario />} />} />
+      <Route path='/user' element={<PrivateRoute element={<User />} />} />
 
       <Route path='*' element={<NotFound />} />
 

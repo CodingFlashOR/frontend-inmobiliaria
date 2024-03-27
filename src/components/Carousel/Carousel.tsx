@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import { data, DataType } from './data'
 
 import './Carousel.css'
@@ -7,14 +7,14 @@ export default function Carousel () {
   const listRef = useRef<HTMLUListElement>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  const scrollStep = (now: number, listNode: HTMLUListElement, startScroll: number, scrollLeft: number, scrollDuration: number, startTime: number) => {
+  const scrollStep = useCallback((now: number, listNode: HTMLUListElement, startScroll: number, scrollLeft: number, scrollDuration: number, startTime: number) => {
     const elapsed = now - startTime
     const t = Math.min(elapsed / scrollDuration, 1)
     listNode.scrollLeft = startScroll + (scrollLeft - startScroll) * t
     if (t < 1) {
       window.requestAnimationFrame((now) => scrollStep(now, listNode, startScroll, scrollLeft, scrollDuration, startTime))
     }
-  }
+  }, [])
 
   useEffect(() => {
     const listNode = listRef.current
@@ -30,7 +30,7 @@ export default function Carousel () {
 
       window.requestAnimationFrame((now) => scrollStep(now, listNode, startScroll, scrollLeft, scrollDuration, startTime))
     }
-  }, [currentIndex])
+  }, [currentIndex, scrollStep])
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -59,16 +59,16 @@ export default function Carousel () {
   }
 
   return (
-    <div className='h-20 lg:h-40 w-full sm:w-4/5 md:w-3/4 lg:w-full m-auto main-container mt-2 sm:mt-5'>
+    <div className=''>
       <div className='slider-container'>
         <div
-          className='leftArrow text-sm text-amarillo-oscuro'
+          className='leftArrow'
           onClick={() => scrollToImage('prev')}
         >
           ❬
         </div>
         <div
-          className='rightArrow text-sm text-amarillo-oscuro'
+          className='rightArrow'
           onClick={() => scrollToImage('next')}
         >
           ❭
@@ -90,8 +90,8 @@ export default function Carousel () {
           {data.map((_, idx) => (
             <div
               key={idx}
-              className={`dot-container-item text-amarillo ${
-                idx === currentIndex ? 'active text-amarillo-oscuro' : ''
+              className={`dot-container-item ${
+                idx === currentIndex ? 'active' : ''
               }`}
               onClick={() => goToSlide(idx)}
               tabIndex={-1}
