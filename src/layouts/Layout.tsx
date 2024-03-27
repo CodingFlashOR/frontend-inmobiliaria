@@ -10,7 +10,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className='xl:p-20 lg:p-10 h-full pb-16'>
+    <div className=''>
       <Header
         open={open}
         setOpen={setOpen}

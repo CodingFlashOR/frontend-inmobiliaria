@@ -59,16 +59,16 @@ export default function Carousel () {
   }
 
   return (
-    <div className='h-20 lg:h-60 w-full sm:w-4/5 md:w-3/4 lg:w-full lg:px-4 m-auto main-container mt-2 sm:mt-5'>
+    <div className=''>
       <div className='slider-container'>
         <div
-          className='leftArrow text-sm text-amarillo-oscuro'
+          className='leftArrow'
           onClick={() => scrollToImage('prev')}
         >
           ❬
         </div>
         <div
-          className='rightArrow text-sm text-amarillo-oscuro'
+          className='rightArrow'
           onClick={() => scrollToImage('next')}
         >
           ❭
@@ -90,8 +90,8 @@ export default function Carousel () {
           {data.map((_, idx) => (
             <div
               key={idx}
-              className={`dot-container-item text-amarillo ${
-                idx === currentIndex ? 'active text-amarillo-oscuro' : ''
+              className={`dot-container-item ${
+                idx === currentIndex ? 'active' : ''
               }`}
               onClick={() => goToSlide(idx)}
               tabIndex={-1}
