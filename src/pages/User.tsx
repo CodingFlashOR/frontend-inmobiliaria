@@ -1,10 +1,10 @@
 import Layout from '../layouts/Layout'
 
-export default function NotFound () {
+export default function User () {
   return (
     <Layout>
 
-      <div>NotFound</div>
+      <div>Usuario</div>
     </Layout>
   )
 }
