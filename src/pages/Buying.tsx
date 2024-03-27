@@ -1,10 +1,10 @@
 import Layout from '../layouts/Layout'
 
-export default function Nosotros () {
+export default function Buying () {
   return (
     <Layout>
+      <div>Comprar</div>
 
-      <div>Nosotros</div>
     </Layout>
   )
 }

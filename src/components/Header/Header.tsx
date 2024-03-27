@@ -26,18 +26,16 @@ interface HeaderProps {
 export default function Header ({ open, setOpen }: HeaderProps) {
   return (
     <>
-      <div className='flex items-center justify-between bg-amarillo h-16 px-2 lg:hidden sticky top-0 z-50'>
+      <div className=''>
         <BurgerButton setOpen={setOpen} />
-        <h1 className='flex-grow text-white text-xl ml-2'>Inmobiliaria</h1>
-        <button className='flex items-center ml-2'>
+        <h1 className=''>Inmobiliaria</h1>
+        <button className=''>
           <LupaIcon />
         </button>
       </div>
 
       <div
-        className={`bg-gray-600/50 min-h-screen w-full lg:hidden fixed top-0 left-0 backdrop-blur-sm transition-all duration-300 ${
-          open ? '' : 'hidden'
-        }`}
+        className=''
         style={{ zIndex: 9998 }}
       />
 
@@ -45,14 +43,14 @@ export default function Header ({ open, setOpen }: HeaderProps) {
         setOpen={setOpen}
         open={open}
       />
-      <div className='hidden lg:flex items-center justify-between'>
+      <div className=''>
         <div>
-          <a href='/' className='flex items-center gap-2'>
-            <img className='w-20' src='https://i.ibb.co/3YpL3hD/logo-Editada.png' alt='Logo' />
+          <a href='/' className=''>
+            <img className='' src='https://i.ibb.co/3YpL3hD/logo-Editada.png' alt='Logo' />
             <p className='xl:text-4xl text-2xl font-serif font-bold'>Inmobiliaria</p>
           </a>
         </div>
-        <nav className=' xl:text-2xl text-xl flex gap-6 text-amarillo'>
+        <nav className=''>
           <a href='/alquiler'>ALQUILAR</a>
           <a href='/comprar'>COMPRAR</a>
           <a href='/nosotros'>NOSOTROS</a>

@@ -1,10 +1,11 @@
 import Layout from '../layouts/Layout'
-import Carousel from '../components/Home/Carousel/Carousel'
-import InfoHome from '../components/Home/MainBanner/MainBanner'
-import InfoCards from '../components/Home/InfoCards/InfoCards'
+import Carousel from '../components/Carousel/Carousel'
+import InfoHome from '../components/MainBanner/MainBanner'
+import InfoCards from '../components/InfoCards/InfoCards'
+import AboutUs from '../components/AboutUs/AboutUs'
 
 const MiIconoAlquilerGrande = () => (
-  <svg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 50 54' strokeWidth='1.5' stroke='#DCB416' className='w-40' style={{ filter: 'drop-shadow(1px 0px 0px rgba(220, 180, 22, 0.1))' }}>
+  <svg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 50 54' strokeWidth='1.5' stroke='#DCB416' className='' style={{ filter: 'drop-shadow(1px 0px 0px rgba(220, 180, 22, 0.1))' }}>
     <g filter='url(#filter0_d_308_1602)'>
       <path d='M35.4166 25C29.6666 25 25 29.6667 25 35.4167C25 41.1667 29.6666 45.8333 35.4166 45.8333C41.1666 45.8333 45.8333 41.1667 45.8333 35.4167C45.8333 29.6667 41.1666 25 35.4166 25ZM38.8541 40.3125L34.375 35.8333V29.1667H36.4583V34.9792L40.3125 38.8333L38.8541 40.3125ZM37.5 6.25001H30.875C30 3.83334 27.7083 2.08334 25 2.08334C22.2916 2.08334 20 3.83334 19.125 6.25001H12.5C10.2083 6.25001 8.33331 8.12501 8.33331 10.4167V41.6667C8.33331 43.9583 10.2083 45.8333 12.5 45.8333H25.2291C24 44.6458 23 43.2292 22.2708 41.6667H12.5V10.4167H16.6666V16.6667H33.3333V10.4167H37.5V21C38.9791 21.2083 40.375 21.6458 41.6666 22.25V10.4167C41.6666 8.12501 39.7916 6.25001 37.5 6.25001ZM25 10.4167C23.8541 10.4167 22.9166 9.47918 22.9166 8.33334C22.9166 7.18751 23.8541 6.25001 25 6.25001C26.1458 6.25001 27.0833 7.18751 27.0833 8.33334C27.0833 9.47918 26.1458 10.4167 25 10.4167Z' fill='white' />
     </g>
@@ -88,9 +89,9 @@ export default function Home () {
     <Layout>
       <Carousel />
       <InfoHome />
-      <div>
+      <div className=''>
         <InfoCards
-          Titulo='Alquiler' Texto='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae tenetur dignissimos consequuntur beatae, impedit dolor minus porro perferendis! Optio, dignissimos libero aut recusandae repellat in dicta eos modi exercitationem explicabo. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae tenetur dignissimos consequuntur beatae, impedit dolor minus porro perferendis! Optio, dignissimos libero aut recusandae repellat in dicta eos modi exercitationem explicabo.' Propiedades={[
+          Titulo='Alquiler' Texto='Explora nuestras exclusivas propiedades de alquiler, diseñadas para adaptarse a tu estilo de vida. Desde departamentos urbanos hasta hogares espaciosos, cada opción refleja nuestro compromiso con la comodidad y la calidad. Experimenta un proceso sin complicaciones con nuestra guía personalizada, donde la claridad y la confiabilidad convergen para hacer de tu búsqueda de alquiler una experiencia fácil y satisfactoria.' Propiedades={[
             {
               Nombre: 'Departamento 1',
               Zona: 'Coso',
@@ -120,7 +121,7 @@ export default function Home () {
           SvgContentGrande={MiIconoAlquilerGrande}
         />
         <InfoCards
-          Titulo='Comprar' Texto='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae tenetur dignissimos consequuntur beatae, impedit dolor minus porro perferendis! Optio, dignissimos libero aut recusandae repellat in dicta eos modi exercitationem explicabo. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae tenetur dignissimos consequuntur beatae, impedit dolor minus porro perferendis! Optio, dignissimos libero aut recusandae repellat in dicta eos modi exercitationem explicabo.' Propiedades={[
+          Titulo='Comprar' Texto='Descubre la experiencia de compra de viviendas con nosotros, donde cada propiedad es una puerta a tu futuro. Nuestro proceso intuitivo y personalizado te guía hacia la elección perfecta. Incluyendo desde departamentos modernos hasta elegantes residencias, cada elección refleja nuestro compromiso con la calidad y la comodidad de nuestros clientes. Haz de tu búsqueda de hogar una travesía emocionante y sin complicaciones con nuestra orientación experta.' Propiedades={[
             {
               Nombre: 'Departamento 1',
               Zona: 'Coso',
@@ -149,6 +150,7 @@ export default function Home () {
           SvgContentChico={MiIconoCompraChico}
           SvgContentGrande={MiIconoCompraGrande}
         />
+        <AboutUs />
       </div>
 
     </Layout>
