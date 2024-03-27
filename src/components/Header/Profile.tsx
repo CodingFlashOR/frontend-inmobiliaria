@@ -10,12 +10,12 @@ export default function Profile ({ perfilIMG = 'https://www.pngall.com/wp-conten
 
   return (
     <>
-      <div className={`flex sm:mt-6 mt-4 gap-4 transition-all duration-300 ${open ? 'opacity-100 visible delay-150' : 'opacity-0 invisible delay-0'}`}>
+      <div className=''>
         <div>
-          <img className='rounded-full object-cover w-20 h-20 ' src={perfilIMG} alt='' />
+          <img className='' src={perfilIMG} alt='' />
         </div>
         <h3
-          className='mt-8'
+          className=''
         >{`Hola ${trimmedName}!`}
         </h3>
       </div>

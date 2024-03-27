@@ -1,17 +1,17 @@
 export default function CardProperty () {
   return (
-    <div className='p-2 shadow-xl  max-w-96'>
-      <h3 className=' mt-6 ml-6'>Titulo</h3>
-      <div className='px-2'>
-        <img className='w-full h-36' src='https://definicion.de/wp-content/uploads/2011/01/casa-2.jpg' alt='' />
+    <div className=''>
+      <h3 className=''>Titulo</h3>
+      <div className=''>
+        <img className='' src='https://definicion.de/wp-content/uploads/2011/01/casa-2.jpg' alt='' />
       </div>
-      <div className='text-xs px-2 py-4 flex flex-col gap-1'>
+      <div className=''>
         <p>Alquiler Mensual</p>
         <p>Zona:</p>
         <p>Dimensiones:</p>
       </div>
-      <div className='flex ml-4 justify-between items-center'>
-        <div className='flex gap-4'>
+      <div className=''>
+        <div className=''>
           <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <g opacity='0.65'>
               <path d='M20.16 4.61C19.0983 3.548 17.6908 2.90232 16.1933 2.79038C14.6958 2.67843 13.2078 3.10766 12 4C10.7277 3.05363 9.14402 2.62451 7.56795 2.79903C5.99188 2.97356 4.54047 3.73877 3.506 4.94058C2.47154 6.14239 1.93085 7.69152 1.99283 9.27601C2.05481 10.8605 2.71485 12.3627 3.84003 13.48L11.29 20.93C11.383 21.0237 11.4936 21.0981 11.6155 21.1489C11.7373 21.1997 11.868 21.2258 12 21.2258C12.132 21.2258 12.2627 21.1997 12.3846 21.1489C12.5065 21.0981 12.6171 21.0237 12.71 20.93L20.16 13.48C20.7427 12.8977 21.2049 12.2063 21.5202 11.4454C21.8356 10.6844 21.9979 9.86873 21.9979 9.045C21.9979 8.22127 21.8356 7.40561 21.5202 6.64463C21.2049 5.88365 20.7427 5.19227 20.16 4.61ZM18.75 12.07L12 18.81L5.25003 12.07C4.65521 11.4727 4.25001 10.713 4.08526 9.88634C3.92052 9.05963 4.00356 8.20268 4.32398 7.42299C4.6444 6.6433 5.18793 5.97559 5.88638 5.50362C6.58483 5.03165 7.40709 4.77644 8.25003 4.77C9.37614 4.77276 10.4551 5.22233 11.25 6.02C11.343 6.11373 11.4536 6.18812 11.5755 6.23889C11.6973 6.28966 11.828 6.3158 11.96 6.3158C12.092 6.3158 12.2227 6.28966 12.3446 6.23889C12.4665 6.18812 12.5771 6.11373 12.67 6.02C13.4884 5.31088 14.5455 4.93914 15.6276 4.98002C16.7096 5.0209 17.7357 5.47134 18.4982 6.24019C19.2607 7.00903 19.7026 8.03884 19.7345 9.12119C19.7664 10.2035 19.3859 11.2576 18.67 12.07H18.75Z' fill='#DCB416' />
@@ -22,7 +22,7 @@ export default function CardProperty () {
           </svg>
         </div>
 
-        <button className='mr-4 text-sm bg-amarillo-oscuro-500 rounded-md p-1 px-4 border-amarillo-oscuro border-2'>LEER MÁS</button>
+        <button className=''>LEER MÁS</button>
       </div>
     </div>
   )
