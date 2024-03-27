@@ -27,31 +27,25 @@ const SideBar: React.FC<SideBarProps> = ({ setOpen, open }) => {
   return (
     <div
       ref={sidebarRef}
-      className={`bg-white min-h-screen fixed top-0 left-0 transition-all duration-300 lg:hidden ${
-        open ? 'sm:w-80 w-52' : 'w-0'
-      }`}
-      style={{ zIndex: 9999 }} // Añade esta línea
+      className=''
+      style={{ zIndex: 9999 }} // Pa que este siempre adelante
     >
       <div
-        className={`bg-amarillo-cream h-5 transition-all duration-300 ${
-          open ? 'sm:w-80 w-52' : 'w-0'
-        }`}
+        className=''
       />
       <div
-        className={`flex flex-col sm:pl-6 pl-4 gap-5  ${
-          open ? 'opacity-100 visible delay-150' : 'opacity-0 invisible delay-0 '
-        }`}
+        className=''
       >
         <Profile PerfilName='Nacho' open={open} />
 
-        <div className={`border-t border-gray-600 sm:w-56 w-32 h-0.5 my-4 ${open ? 'opacity-100 visible delay-150' : 'opacity-0 invisible delay-0'}`} />
+        <div className='' />
 
         <ListItems icono={PerfilIcon} texto='Perfil' url='/' open={open} />
         <ListItems icono={CorazonIcon} texto='Favoritos' url='/' open={open} />
         <ListItems icono={CampanaIcon} texto='Notificaciones' url='/' open={open} />
         <ListItems icono={RelojIcon} texto='Historial' url='/' open={open} />
 
-        <div className={`border-t border-gray-600 sm:w-56 w-32 h-0.5 my-4 ${open ? 'opacity-100 visible delay-150' : 'opacity-0 invisible delay-0'}`} />
+        <div className='' />
 
         <ListItems icono={EngranajeIcon} texto='Configuraciones' url='/' open={open} />
         <ListItems icono={AyudaIcon} texto='Ayuda' url='/' open={open} />
@@ -59,9 +53,9 @@ const SideBar: React.FC<SideBarProps> = ({ setOpen, open }) => {
         <ListItems icono={LlaveIcon} texto='Cerrar Sesión' url='/' open={open} />
       </div>
 
-      <div className={`flex justify-center items-center mt-10 ${open ? 'opacity-100 visible delay-150' : 'opacity-0 invisible delay-0'}`}>
+      <div className=''>
         <button
-          className='hover:bg-amarillo-500 rounded-full shadow-md active:shadow-none p-2'
+          className=''
           onClick={() => {
             setOpen(false)
           }}
