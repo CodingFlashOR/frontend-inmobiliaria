@@ -16,6 +16,6 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    'quotes': ['error', 'single'], // Esta es la regla que agregaste
+    'quotes': ['error', 'single'], 
   },
 }
