@@ -47,7 +47,7 @@ export default function Header ({ open, setOpen }: HeaderProps) {
         <div>
           <a href='/' className=''>
             <img className='' src='https://i.ibb.co/3YpL3hD/logo-Editada.png' alt='Logo' />
-            <p className='xl:text-4xl text-2xl font-serif font-bold'>Inmobiliaria</p>
+            <p className=''>Inmobiliaria</p>
           </a>
         </div>
         <nav className=''>
