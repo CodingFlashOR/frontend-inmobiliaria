@@ -1,7 +1,7 @@
 import Icono from './Icono'
 import { AlquilarIcon, ComprarIcon, ContactoIcon, HomeIcon, FacebookIcon, WhatsappIcon, InstagramIcon } from './Icons'
 
-export default function Footer () {
+export default function NavBar () {
   return (
     <footer className=''>
       <div className=''>
