@@ -1,0 +1,22 @@
+name: Lint Commit Messages
+
+on:
+  pull_request:
+    branches: [ 'dev', 'main' ]
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Lint Commit Messages
+        uses: wagoid/commitlint-github-action@v3
+        continue-on-error: true
+
+      - name: Custom Error Message
+        run: echo "Se identificaron mensajes de confirmación que no sigue el formato requerido. Por favor revisa e intenta de nuevo."
+        if: ${{ failure() }}
