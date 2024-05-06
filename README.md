@@ -1,9 +1,9 @@
 # Aplicación Web Inmobiliaria Bonpland
 > [!NOTE]
-> Este proyecto aun está en desarrollo, el equipo de [CodingFlash](https://github.com/CodingFlashOR) trabaja en ello.
+> Este proyecto aun está en desarrollo, el equipo de <a href="https://github.com/CodingFlashOR" target="_blank">CodingFlash</a>
 
 <div>
-    <a href="https://dev-inmobiliaria.netlify.app">
+    <a href="https://dev-inmobiliaria.netlify.app" target="_blank">
         <img src="/images/InmobiliariaBonplandBanner.png">
     </a>
 </div>
@@ -70,13 +70,13 @@ Si está interesado en contribuir a este proyecto, consulte nuestra guía [CONTR
 ## 6. Documentación
 | Título | Descripción | 
 |----------|----------|
-| [Especifcación de requerimientos](https://drive.google.com/file/d/1rHrYdVJ7h1wPVbSSrLhgfYliH-DhmyL-/view?usp=drive_link) | Este documento detalla los requerimientos funcionales, no funcionales y el comportamiento de las diferentes interfaces del sistema. |
+| <a href="https://drive.google.com/file/d/1rHrYdVJ7h1wPVbSSrLhgfYliH-DhmyL-/view?usp=drive_link" target="_blank">Especifcación de requerimientos</a> | Este documento detalla los requerimientos funcionales, no funcionales y el comportamiento de las diferentes interfaces del sistema. |
 | [Base de datos]()   | Este documento proporciona una visión detallada de la estructura de la base de datos utilizada en el proyecto. |
 | [Documentación de la API]() | Esta es la documentación para la API del proyecto, que incluye detalles sobre los endpoints disponibles y los datos que se pueden enviar y recibir. |
 
 ## 7. Repositorios relacionados
-- [Repositorio principal](https://github.com/CodingFlashOR#11-inmobiliaria-bonpland).
-- [Repositorio Backend](https://github.com/The-Asintota/backend-inmobiliaria/tree/develop).
+- <a href="https://github.com/CodingFlashOR#11-inmobiliaria-bonpland" target="_blank">Repositorio principal.</a>
+- <a href="https://github.com/The-Asintota/backend-inmobiliaria/tree/develop" target="_blank">Repositorio Backend.</a>
 
 ## 8. Colaboradores
 Las siguientes personas son las encargadas de desarrollar este proyecto.
