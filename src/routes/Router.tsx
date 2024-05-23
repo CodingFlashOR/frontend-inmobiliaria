@@ -9,6 +9,7 @@ import Buying from '../pages/Buying'
 import AboutUs from '../pages/AboutUs'
 import Login from '../pages/Login'
 import DetailPurchases from '../pages/DetailPurchases'
+import Register from '../pages/Register'
 
 export default function Router () {
   return (
@@ -27,6 +28,8 @@ export default function Router () {
       <Route path='/nosotros' element={<AboutUs />} />
 
       <Route path='/login' element={<Login />} />
+
+      <Route path='/register' element={<Register />} />
 
       <Route path='/user' element={<PrivateRoute element={<User />} />} />
 
