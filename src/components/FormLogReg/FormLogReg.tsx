@@ -23,30 +23,33 @@ const FormLogReg: React.FC<FormLogRegProps> = ({ type, inputs }) => {
         <h2>INMOBILIARIA</h2>
         <h3>¡Bienvenido!</h3>
       </div>
-      <Inputs inputs={inputs} />
-      {type === 'login'
-        ? (
-          <div>
+      <form action=''>
+        <Inputs inputs={inputs} />
+        {type === 'login'
+          ? (
             <div>
-              <input type='checkbox' />
-              <p>Recordarme</p>
+              <div>
+                <input type='checkbox' />
+                <p>Recordarme</p>
+              </div>
+              <div>¿Olvidaste tu contraseña?</div>
             </div>
-            <div>¿Olvidaste tu contraseña?</div>
-          </div>
-          )
-        : (
-          <div>
-            <input type='checkbox' /> Acepto los términos y condiciones de uso
-          </div>
-          )}
-      {type === 'login'
-        ? (
-          <button>Iniciar sesión</button>
-          )
-        : (
-          <button>Registrarse</button>
-          )}
-      <div className='footer'>
+            )
+          : (
+            <div>
+              <input type='checkbox' /> Acepto los términos y condiciones de uso
+            </div>
+            )}
+        {type === 'login'
+          ? (
+            <button>Iniciar sesión</button>
+            )
+          : (
+            <button>Registrarse</button>
+            )}
+      </form>
+
+      <div>
         {type === 'login'
           ? (
             <p>

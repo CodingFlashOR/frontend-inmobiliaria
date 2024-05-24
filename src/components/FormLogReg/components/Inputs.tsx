@@ -15,11 +15,11 @@ interface InputsProps {
 
 const Inputs: React.FC<InputsProps> = ({ inputs }) => {
   return (
-    <form>
+    <>
       {inputs.map((input) => (
         <InputComponent key={input.id} input={input} />
       ))}
-    </form>
+    </>
   )
 }
 
