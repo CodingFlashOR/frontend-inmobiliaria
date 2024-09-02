@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Route, Navigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
 
 interface AuthContextType {
@@ -15,13 +15,7 @@ interface PrivateRouteProps {
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ element }) => {
   const { isAuthenticated } = useContext(AuthContext) as AuthContextType
 
-  return isAuthenticated
-    ? (
-      <Route element={element} />
-      )
-    : (
-      <Navigate to='/' />
-      )
+  return isAuthenticated ? element : <Navigate to='/' />
 }
 
 export default PrivateRoute
