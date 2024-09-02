@@ -70,23 +70,24 @@ Si está interesado en contribuir a este proyecto, consulte nuestra guía [CONTR
 ## 6. Documentación
 | Título | Descripción | 
 |----------|----------|
-| <a href="https://drive.google.com/file/d/1rHrYdVJ7h1wPVbSSrLhgfYliH-DhmyL-/view?usp=drive_link" target="_blank">Especifcación de requerimientos</a> | Este documento detalla los requerimientos funcionales, no funcionales y el comportamiento de las diferentes interfaces del sistema. |
-| [Base de datos]()   | Este documento proporciona una visión detallada de la estructura de la base de datos utilizada en el proyecto. |
-| [Documentación de la API]() | Esta es la documentación para la API del proyecto, que incluye detalles sobre los endpoints disponibles y los datos que se pueden enviar y recibir. |
+| [Especifcación de requerimientos](https://writer.zoho.com/writer/open/gvaj1411213d7d4bb4c818860a3bea679ecbb) | Este documento detalla los requerimientos funcionales, no funcionales y el comportamiento de las diferentes interfaces del sistema. |
+| [Base de datos](https://app.diagrams.net/?title=EsquemaDB.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1uJAsYcVnTEviwOq5JZ_q_2VWnpvgPfBd%26export%3Ddownload)   | Esquema de la base de datos del proyecto. |
+| [Documentación de la API](https://carlosandresaguirreariza.pythonanywhere.com/) | Esta es la documentación para la API del proyecto, que incluye detalles sobre los endpoints disponibles y los datos que se pueden enviar y recibir. |
 
 ## 7. Repositorios relacionados
-- <a href="https://github.com/CodingFlashOR#11-inmobiliaria-bonpland" target="_blank">Repositorio principal.</a>
-- <a href="https://github.com/The-Asintota/backend-inmobiliaria/tree/develop" target="_blank">Repositorio Backend.</a>
+- [Repositorio Principal](https://github.com/CodingFlashOR#11-inmobiliaria-bonpland).
+- [Repositorio Backend](https://github.com/CodingFlashOR/backend-inmobiliaria).
 
 ## 8. Colaboradores
 Las siguientes personas son las encargadas de desarrollar este proyecto.
 
-| Nombre | Enlaces | Roles | 
+| Nombre | Enlaces | Roles |
 |----------|:--------:|:--------:|
-| Yoana Avaro | <a href="https://www.linkedin.com/in/yoana-avaro/" target="_blank">LinkedIn</a> | Diseño UX/UI |
-| Maria Fuentes | <a href="https://www.linkedin.com/in/maria-fuentes-112920256/" target="_blank">LinkedIn</a> - <a href="https://github.com/Mmff07" target="_blank">Git Hub</a> - <a href="https://www.behance.net/mariafuentes22" target="_blank">Behance</a> | Diseño UX/UI |
-| Ignacio Nicolas Basilio Buracco | <a href="https://github.com/NachoBasilio" target="_blank">Git Hub</a> - <a href="https://www.linkedin.com/in/ignacio-nicolas-basilio-buracco/" target="_blank">LinkedIn</a> | Frontend |
-| Jose Lozada | <a href="https://github.com/lozada07" target="_blank">Git Hub</a> - <a href="" target="_blank">LinkedIn</a> | Frontend |
-| Carlos Andres Aguirre Ariza | <a href="https://github.com/The-Asintota" target="_blank">Git Hub</a> - <a href="https://www.linkedin.com/in/carlosaguirredev/" target="_blank">LinkedIn</a> | Backend - Frontend |
-| Gabriela Patiño | <a href="https://github.com/Gabyp05" target="_blank">Git Hub</a> - <a href="https://www.linkedin.com/in/gabyp05/" target="_blank">LinkedIn</a> | QA |
-| Carolina Pascua | <a href="https://github.com/CarolinaPascua" target="_blank">Git Hub</a> - <a href="https://www.linkedin.com/in/carolinalidiapascua/" target="_blank">LinkedIn</a> | QA |
+| Lucas A Bravi | [LinkedIn](https://www.linkedin.com/in/lucasandr%C3%A9sbravi/) - [Portafolio](https://lucasbravidi1062b1.myportfolio.com/) | Diseño UX/UI |
+| Anabel García Lannes | [LinkedIn](https://www.linkedin.com/in/anabelgarc%C3%ADalannes/) - [GitHub](https://github.com/anabelgl) | Diseño UX/UI |
+| Flor Rivas Luna | [LinkedIn](https://www.linkedin.com/in/floridesign/) - [GitHub](https://github.com/FlorRivas) - [Behance](https://www.behance.net/floridesign) | Diseño UX/UI |
+| Leandro Emanuel Diaz | [GitHub]( https://github.com/leandiazz) - [LinkedIn](https://www.linkedin.com/in/leandiaz/) | Frontend |
+| Ignacio Nicolas Basilio Buracco | [GitHub](https://github.com/NachoBasilio) - [LinkedIn](https://www.linkedin.com/in/ignacio-nicolas-basilio-buracco/) | Frontend |
+| Carlos Andres Aguirre Ariza | [GitHub](https://github.com/The-Asintota) - [LinkedIn](https://www.linkedin.com/in/carlosaguirredev/) | Backend - Frontend |
+| Nadia Mariana | [LinkedIn](https://www.linkedin.com/in/nadia-mariana-fridel-490ab263/) | QA |
+| Yisell Coello Labrada | [LinkedIn](https://www.linkedin.com/in/yisell-coello-labrada-725668250/) | QA |
