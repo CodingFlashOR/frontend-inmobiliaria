@@ -84,7 +84,7 @@ const EditorText = ({ setMarkdown }) => {
       setMarkdown(markdownContent);
     });
 
-  }, [setMarkdown]);
+  }, []);
 
   return <div ref={editorRef} style={{ height: '400px' }} />;
 };
