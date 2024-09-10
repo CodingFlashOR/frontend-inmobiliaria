@@ -13,6 +13,9 @@
   "dependencies": {
     "concurrently": "^8.2.2",
     "jsdom": "^24.0.0",
+    "marked": "^14.1.2",
+    "quill": "^2.0.2",
+    "quilljs-markdown": "^1.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.2"
