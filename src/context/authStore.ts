@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { jwtDecode } from 'jwt-decode'
 import { AuthState, LoginResponse, MyToken } from './interfaces'
 
-const URL = 'https://carlosandresaguirreariza.pythonanywhere.com/'
+const URL = 'https://carlosandresaguirreariza.pythonanywhere.com'
 
 const useAuthStore = create<AuthState>((set, get) => ({
   isAuthenticated: false,
