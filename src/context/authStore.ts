@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { jwtDecode } from 'jwt-decode'
 import { AuthState, LoginResponse, MyToken } from './interfaces'
 
-const URL = 'https://carlosandresaguirreariza.pythonanywhere.com'
+const URL = import.meta.env.VITE_API_URL
 
 const useAuthStore = create<AuthState>((set, get) => ({
   isAuthenticated: false,
@@ -35,23 +35,17 @@ const useAuthStore = create<AuthState>((set, get) => ({
   updateTokens: async () => {
     const { refreshToken, accessToken } = get()
 
-    // Verifica si `access_token` existe antes de decodificarlo
     if (!accessToken) {
       return
     }
 
-    // Decodifica el token
-
     const decodedToken = jwtDecode<MyToken>(accessToken)
 
-    // Verifica si el token ha expirado
-    const currentTime = Date.now() / 1000 // Tiempo actual en segundos
+    const currentTime = Date.now() / 1000
     if (decodedToken.exp > currentTime) {
-      // Si el token no ha expirado, no actualizamos los tokens
       return
     }
 
-    // Si el token ha expirado, solicita nuevos tokens
     const response = await fetch(`${URL}/api/v1/user/jwt/update/`, {
       method: 'POST',
       headers: {
@@ -73,7 +67,6 @@ const useAuthStore = create<AuthState>((set, get) => ({
     const state = get()
     const { refreshToken, updateTokens } = state
 
-    // Asegúrate de que `updateTokens` es una función
     if (typeof updateTokens === 'function') {
       await updateTokens()
     }
