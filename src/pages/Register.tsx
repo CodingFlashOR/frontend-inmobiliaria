@@ -3,9 +3,9 @@ import FormLogReg from '../components/FormLogReg/FormLogReg' // Ajusta la ruta s
 
 const Register: React.FC = () => {
   const registerInputs = [
-    { id: 'nameSurname', label: 'Nombre y Apellido', placeholder: 'Nacho Basilio', type: 'text' },
-    { id: 'email', label: 'Email', placeholder: 'arcortoon@gmail.com', type: 'email' },
-    { id: 'password', label: 'Contraseña', placeholder: '********', type: 'password' }
+    { id: 'nameSurname', label: 'Nombre y Apellido', placeholder: 'Nacho Basilio', type: 'text', name: 'nameSurname' },
+    { id: 'email', label: 'Email', placeholder: 'arcortoon@gmail.com', type: 'email', name: 'email' },
+    { id: 'password', label: 'Contraseña', placeholder: '********', type: 'password', name: 'password' }
   ]
 
   return (

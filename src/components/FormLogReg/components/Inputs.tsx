@@ -18,7 +18,11 @@ const Inputs: React.FC<InputsProps> = ({ inputs }) => {
   return (
     <>
       {inputs.map((input) => (
-        <InputComponent key={input.id} input={input} name={input.name} />
+        <InputComponent
+          key={input.id}
+          input={input}
+          name={input.name}
+        />
       ))}
     </>
   )
