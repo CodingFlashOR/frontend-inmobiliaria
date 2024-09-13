@@ -16,7 +16,7 @@ const useAuthStore = create<AuthState>((set, get) => ({
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ email, pass })
+      body: JSON.stringify({ email, password: pass })
     })
 
     const data: LoginResponse = await response.json()
