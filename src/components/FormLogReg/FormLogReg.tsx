@@ -1,6 +1,7 @@
 import React from 'react'
 import Inputs from './components/Inputs'
 import './FormLogReg.css'
+import useAuthStore from '../../context/authStore'
 
 interface Input {
   id: string; // Identificador único
@@ -16,6 +17,16 @@ interface FormLogRegProps {
 }
 
 const FormLogReg: React.FC<FormLogRegProps> = ({ type, inputs }) => {
+  const { login } = useAuthStore()
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const email = e.currentTarget.email.value
+    const pass = e.currentTarget.password.value
+
+    await login(email, pass)
+  }
+
   return (
     <>
       <div className='header'>
@@ -23,7 +34,7 @@ const FormLogReg: React.FC<FormLogRegProps> = ({ type, inputs }) => {
         <h2>INMOBILIARIA</h2>
         <h3>¡Bienvenido!</h3>
       </div>
-      <form action=''>
+      <form action='' onSubmit={handleSubmit}>
         <Inputs inputs={inputs} />
         {type === 'login'
           ? (

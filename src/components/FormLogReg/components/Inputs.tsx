@@ -7,6 +7,7 @@ interface InputProps {
   placeholder: string;
   type: string;
   icon?: string;
+  name: string;
 }
 
 interface InputsProps {
@@ -17,7 +18,7 @@ const Inputs: React.FC<InputsProps> = ({ inputs }) => {
   return (
     <>
       {inputs.map((input) => (
-        <InputComponent key={input.id} input={input} />
+        <InputComponent key={input.id} input={input} name={input.name} />
       ))}
     </>
   )

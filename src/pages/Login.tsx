@@ -3,8 +3,8 @@ import FormLogReg from '../components/FormLogReg/FormLogReg' // Ajusta la ruta s
 
 const Login: React.FC = () => {
   const loginInputs = [
-    { id: 'email', label: 'Email', placeholder: 'arcortoon@gmail.com', type: 'email' },
-    { id: 'password', label: 'Contraseña', placeholder: '********', type: 'password' }
+    { id: 'email', label: 'Email', placeholder: 'arcortoon@gmail.com', type: 'email', name: 'email' },
+    { id: 'password', label: 'Contraseña', placeholder: '********', type: 'password', name: 'password' }
   ]
 
   return (
