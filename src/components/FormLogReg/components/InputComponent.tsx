@@ -8,6 +8,7 @@ interface InputProps {
     placeholder: string;
     type: string;
     icon?: string;
+    name: string;
   };
 }
 
@@ -18,6 +19,7 @@ const InputComponent: React.FC<InputProps> = ({ input }) => {
       <input
         type={input.type}
         placeholder={input.placeholder}
+        name={input.name}
       />
       {input.icon && <i className={input.icon} />}
     </div>
