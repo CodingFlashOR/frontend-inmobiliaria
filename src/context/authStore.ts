@@ -11,7 +11,7 @@ const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
 
   login: async (email: string, pass: string) => {
-    const response = await fetch(`${URL}/api/login`, {
+    const response = await fetch(`${URL}/api/v1/user/jwt/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -53,7 +53,7 @@ const useAuthStore = create<AuthState>((set, get) => ({
     }
 
     // Si el token ha expirado, solicita nuevos tokens
-    const response = await fetch(`${URL}/api/refresh`, {
+    const response = await fetch(`${URL}/api/v1/user/jwt/update`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -79,7 +79,7 @@ const useAuthStore = create<AuthState>((set, get) => ({
       await updateTokens()
     }
 
-    await fetch(`${URL}/api/logout`, {
+    await fetch(`${URL}/api/v1/user/jwt/logout`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
