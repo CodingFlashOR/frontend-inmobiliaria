@@ -27,4 +27,4 @@ interface AuthState {
   logout: () => Promise<void>;
 }
 
-export { MyToken, User, LoginResponse, AuthState }
+export type { MyToken, User, LoginResponse, AuthState }

@@ -9,6 +9,7 @@ interface Input {
   placeholder: string;
   type: string;
   icon?: string;
+  name: string;
 }
 
 interface FormLogRegProps {

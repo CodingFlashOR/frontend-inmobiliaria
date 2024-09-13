@@ -1,25 +1,27 @@
 import React from 'react'
 
-// Define las propiedades para el componente Input
 interface InputProps {
-  input: {
-    id: string;
-    label: string;
-    placeholder: string;
-    type: string;
-    icon?: string;
-    name: string;
-  };
+  id: string;
+  label: string;
+  placeholder: string;
+  type: string;
+  icon?: string;
+  name: string;
 }
 
-const InputComponent: React.FC<InputProps> = ({ input }) => {
+interface InputComponentProps {
+  input: InputProps;
+  name: string; // Añade name aquí
+}
+
+const InputComponent: React.FC<InputComponentProps> = ({ input, name }) => {
   return (
     <div key={input.id} className='input-group'>
       <label>{input.label}</label>
       <input
         type={input.type}
         placeholder={input.placeholder}
-        name={input.name}
+        name={name} // Usa name aquí
       />
       {input.icon && <i className={input.icon} />}
     </div>
