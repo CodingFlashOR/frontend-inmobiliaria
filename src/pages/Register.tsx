@@ -10,9 +10,17 @@ const Register: React.FC = () => {
     { id: 'password', label: 'Contraseña', placeholder: '********', type: 'password', name: 'password' }
   ]
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setRegisterInfo(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
   return (
     <div>
-      <FormLogReg type='register' inputs={registerInputs} inputsInfo={registerInfo} setInputsInfo={setRegisterInfo} />
+      <FormLogReg type='register' inputs={registerInputs} inputsInfo={registerInfo} handleChange={handleChange} />
     </div>
   )
 }
