@@ -10,6 +10,6 @@ export default defineConfig({
     sourcemap: false
   },
   server: {
-    port: parseInt(process.env.VITE_PORT) || 3000,
+    port: parseInt(process.env.VITE_PORT) || 3000
   }
 })

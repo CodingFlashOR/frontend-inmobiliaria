@@ -4,7 +4,7 @@ module.exports = {
     'standard-jsx',
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
+    'plugin:react-hooks/recommended'
   ],
   root: true,
   env: { browser: true, es2020: true },
@@ -14,8 +14,8 @@ module.exports = {
   rules: {
     'react-refresh/only-export-components': [
       'warn',
-      { allowConstantExport: true },
+      { allowConstantExport: true }
     ],
-    'quotes': ['error', 'single'], 
-  },
+    'quotes': ['error', 'single']
+  }
 }
