@@ -12,16 +12,24 @@ interface InputProps {
 
 interface InputsProps {
   inputs: InputProps[];
+  inputsInfo: { [key: string]: string };
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Inputs: React.FC<InputsProps> = ({ inputs }) => {
+const Inputs: React.FC<InputsProps> = ({ inputs, inputsInfo, handleChange }) => {
   return (
     <>
-      {inputs.map((input) => (
+      {inputs.map(input => (
         <InputComponent
           key={input.id}
-          input={input}
+          id={input.id}
+          label={input.label}
+          placeholder={input.placeholder}
+          type={input.type}
+          icon={input.icon}
           name={input.name}
+          value={inputsInfo[input.name as keyof typeof inputsInfo]}
+          onChange={handleChange}
         />
       ))}
     </>

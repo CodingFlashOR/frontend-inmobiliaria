@@ -1,6 +1,6 @@
 interface MyToken {
   token_type: string;
-  exp: number; // Tiempo de expiración en formato Unix (segundos desde 1970)
+  exp: number;
   iat: number;
   jti: string;
   user_uuid: string;
@@ -22,9 +22,13 @@ interface AuthState {
   user: User | null;
   accessToken: string | null;
   refreshToken: string | null;
-  login: (email: string, pass: string) => Promise<void>;
+  login: (email: string, pass: string) => Promise<boolean>;
   updateTokens: () => Promise<void>;
   logout: () => Promise<void>;
+  decodedToken: () => void;
+  exp: number | null;
+  userRole: string | null;
+  userUuid: string | null;
 }
 
 export type { MyToken, User, LoginResponse, AuthState }
