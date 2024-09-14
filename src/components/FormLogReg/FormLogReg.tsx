@@ -1,10 +1,9 @@
 import React from 'react'
 import Inputs from './components/Inputs'
 import './FormLogReg.css'
-import useAuthStore from '../../context/authStore'
 
 interface Input {
-  id: string; // Identificador único
+  id: string;
   label: string;
   placeholder: string;
   type: string;
@@ -15,19 +14,14 @@ interface Input {
 interface FormLogRegProps {
   type: 'login' | 'register';
   inputs: Input[];
+  handleSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
+  inputsInfo: { [key: string]: string };
+  error?: string;
+  loading?: boolean;
+  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const FormLogReg: React.FC<FormLogRegProps> = ({ type, inputs }) => {
-  const { login } = useAuthStore()
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const email = e.currentTarget.email.value
-    const pass = e.currentTarget.password.value
-
-    await login(email, pass)
-  }
-
+const FormLogReg: React.FC<FormLogRegProps> = ({ type, inputs, handleSubmit, handleChange, inputsInfo, error, loading }) => {
   return (
     <>
       <div className='header'>
@@ -35,8 +29,10 @@ const FormLogReg: React.FC<FormLogRegProps> = ({ type, inputs }) => {
         <h2>INMOBILIARIA</h2>
         <h3>¡Bienvenido!</h3>
       </div>
-      <form action='' onSubmit={handleSubmit}>
-        <Inputs inputs={inputs} />
+      <form action='' {...type === 'login' ? { onSubmit: handleSubmit } : {}}>
+        <Inputs inputs={inputs} inputsInfo={inputsInfo} handleChange={handleChange || (() => { })} />
+        {loading && <p>Cargando...</p>}
+        {error && <p>{error}</p>}
         {type === 'login'
           ? (
             <div>

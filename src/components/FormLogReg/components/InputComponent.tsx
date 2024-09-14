@@ -7,23 +7,23 @@ interface InputProps {
   type: string;
   icon?: string;
   name: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-interface InputComponentProps {
-  input: InputProps;
-  name: string; // Añade name aquí
-}
-
-const InputComponent: React.FC<InputComponentProps> = ({ input, name }) => {
+const InputComponent: React.FC<InputProps> = ({ id, label, placeholder, type, icon, name, value, onChange }) => {
   return (
-    <div key={input.id} className='input-group'>
-      <label>{input.label}</label>
+    <div key={id} className='input-group'>
+      <label htmlFor={id}>{label}</label>
       <input
-        type={input.type}
-        placeholder={input.placeholder}
-        name={name} // Usa name aquí
+        id={id}
+        type={type}
+        placeholder={placeholder}
+        name={name}
+        value={value}
+        onChange={onChange}
       />
-      {input.icon && <i className={input.icon} />}
+      {icon && <i className={icon} />}
     </div>
   )
 }
