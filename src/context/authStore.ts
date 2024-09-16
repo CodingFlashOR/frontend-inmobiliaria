@@ -13,6 +13,9 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
   userRole: null,
   userUuid: null,
   exp: null,
+  emailError: null,
+  passwordError: null,
+  responseError: null,
 
   decodedToken: () => {
     const { accessToken } = get()
@@ -45,20 +48,43 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
         set({
           accessToken: data.access_token,
           refreshToken: data.refresh_token,
-          user: data.user,
-          isAuthenticated: true
+          isAuthenticated: true,
+          emailError: null,
+          passwordError: null,
+          responseError: null
         })
         return true
       } else {
-        set({
-          isAuthenticated: false,
-          user: null,
-          accessToken: null,
-          refreshToken: null,
-          userRole: null,
-          userUuid: null,
-          exp: null
-        })
+        if (response.status === 400) {
+          if (data.detail && typeof data.detail === 'object') {
+            if ('email' in data.detail && data.detail.email) {
+              set({
+                emailError: data.detail.email[0],
+                passwordError: null,
+                responseError: null
+              })
+            }
+            if ('password' in data.detail && data.detail.password) {
+              set({
+                passwordError: data.detail.password[0],
+                emailError: null,
+                responseError: null
+              })
+            }
+          }
+        } else if (response.status === 401 || response.status === 403) {
+          set({
+            responseError: typeof data.detail === 'string' ? data.detail : 'Error desconocido',
+            emailError: null,
+            passwordError: null
+          })
+        } else {
+          set({
+            responseError: typeof data.detail === 'string' ? data.detail : 'Error desconocido',
+            emailError: null,
+            passwordError: null
+          })
+        }
         return false
       }
     } catch (error) {
@@ -70,12 +96,12 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
         refreshToken: null,
         userRole: null,
         userUuid: null,
-        exp: null
+        exp: null,
+        responseError: 'Error de red o servidor'
       })
       return false
     }
   },
-
   updateTokens: async () => {
     const { refreshToken, accessToken } = get()
 

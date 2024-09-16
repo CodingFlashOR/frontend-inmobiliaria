@@ -18,9 +18,24 @@ const Register: React.FC = () => {
     }))
   }
 
+  const handleSubmit = () => {
+    console.log('Form submitted')
+  }
+
+  const error = ''
+  const loading = false
+
   return (
     <div>
-      <FormLogReg type='register' inputs={registerInputs} inputsInfo={registerInfo} handleChange={handleChange} />
+      <FormLogReg
+        type='register'
+        inputs={registerInputs}
+        inputsInfo={registerInfo}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        error={error}
+        loading={loading}
+      />
     </div>
   )
 }
