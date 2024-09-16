@@ -5,9 +5,10 @@ const Register: React.FC = () => {
   const [registerInfo, setRegisterInfo] = React.useState({ nameSurname: '', email: '', password: '' })
 
   const registerInputs = [
-    { id: 'nameSurname', label: 'Nombre y Apellido', placeholder: 'Nacho Basilio', type: 'text', name: 'nameSurname' },
-    { id: 'email', label: 'Email', placeholder: 'arcortoon@gmail.com', type: 'email', name: 'email' },
-    { id: 'password', label: 'Contraseña', placeholder: '********', type: 'password', name: 'password' }
+    { id: 'name', label: 'Nombre', type: 'text', name: 'name' },
+    { id: 'surname', label: 'Apellidos', type: 'text', name: 'surname' },
+    { id: 'email', label: 'Email', type: 'email', name: 'email' },
+    { id: 'password', label: 'Contraseña', type: 'password', name: 'password' }
   ]
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
