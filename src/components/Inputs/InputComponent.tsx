@@ -1,12 +1,12 @@
 import React from 'react'
-import { InputProps } from './Interfaces'
+import { InputProps } from './interfaces'
 
 /**
  * A reusable input component with optional icon.
  * @param {InputProps} props - The props for the input component.
  * @returns {JSX.Element} The rendered input component.
  */
-const InputComponent: React.FC<InputProps> = ({ id, label, placeholder, type, icon, name, value, onChange, inputError }) => {
+const InputComponent: React.FC<InputProps> = ({ id, label, type, icon, name, value, onChange, inputError }) => {
   return (
     <div key={id} className='input-group'>
       {inputError && <p className='error'>{inputError}</p>}
@@ -14,7 +14,6 @@ const InputComponent: React.FC<InputProps> = ({ id, label, placeholder, type, ic
       <input
         id={id}
         type={type}
-        placeholder={placeholder}
         name={name}
         value={value}
         aria-label={label}

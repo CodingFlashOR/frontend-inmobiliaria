@@ -5,7 +5,6 @@ import useAuthStore from '../context/authStore'
 interface PropsInput {
   id: string;
   label: string;
-  placeholder: string;
   type: string;
   icon?: string;
   name: string;
@@ -20,8 +19,8 @@ const Login: React.FC = () => {
   const { login, decodedToken, responseError, emailError, passwordError } = useAuthStore()
 
   const loginInputs: PropsInput[] = [
-    { id: 'email', label: 'Email', placeholder: 'correo@email.com', type: 'email', name: 'email', inputError: emailError },
-    { id: 'password', label: 'Contraseña', placeholder: '***********', type: 'password', name: 'password', inputError: passwordError }
+    { id: 'email', label: 'Correo', type: 'email', name: 'email', inputError: emailError },
+    { id: 'password', label: 'Contraseña', type: 'password', name: 'password', inputError: passwordError }
   ]
 
   useEffect(() => {

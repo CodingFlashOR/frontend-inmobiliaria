@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import Inputs from '../Inputs/Inputs'
-import { FormLogRegProps } from './Interfaces'
+import { FormLogRegProps } from './interfaces'
 
 import './FormLogReg.css'
 
