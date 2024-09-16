@@ -7,7 +7,7 @@ const Register: React.FC = () => {
   const registerInputs = [
     { id: 'name', label: 'Nombre', type: 'text', name: 'name' },
     { id: 'surname', label: 'Apellidos', type: 'text', name: 'surname' },
-    { id: 'email', label: 'Email', type: 'email', name: 'email' },
+    { id: 'email', label: 'Correo', type: 'email', name: 'email' },
     { id: 'password', label: 'Contraseña', type: 'password', name: 'password' }
   ]
 
