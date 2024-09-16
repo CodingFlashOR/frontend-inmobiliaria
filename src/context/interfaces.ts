@@ -14,7 +14,11 @@ interface User {
 interface LoginResponse {
   access_token: string;
   refresh_token: string;
-  user: User;
+  detail?: string | {
+    email?: string[];
+    password?: string[];
+    [key: string]: string[] | string | undefined;
+  };
 }
 
 interface AuthState {
@@ -29,6 +33,9 @@ interface AuthState {
   exp: number | null;
   userRole: string | null;
   userUuid: string | null;
+  responseError: string | { [key: string]: string } | null;
+  emailError: string | null;
+  passwordError: string | null;
 }
 
 export type { MyToken, User, LoginResponse, AuthState }

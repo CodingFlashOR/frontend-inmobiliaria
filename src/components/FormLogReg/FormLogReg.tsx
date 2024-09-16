@@ -1,27 +1,26 @@
 import React from 'react'
-import Inputs from './components/Inputs'
+import { Link } from 'react-router-dom'
+
+import Inputs from '../Inputs/Inputs'
+import { FormLogRegProps } from './Interfaces'
+
 import './FormLogReg.css'
 
-interface Input {
-  id: string;
-  label: string;
-  placeholder: string;
-  type: string;
-  icon?: string;
-  name: string;
-}
-
-interface FormLogRegProps {
-  type: 'login' | 'register';
-  inputs: Input[];
-  handleSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
-  inputsInfo: { [key: string]: string };
-  error?: string;
-  loading?: boolean;
-  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
-const FormLogReg: React.FC<FormLogRegProps> = ({ type, inputs, handleSubmit, handleChange, inputsInfo, error, loading }) => {
+/**
+ * FormLogReg Component
+ * A form component for login and registration purposes.
+ * @param props - The props for the component.
+ * @returns The rendered form component.
+ */
+const FormLogReg: React.FC<FormLogRegProps> = ({
+  type,
+  inputs,
+  handleSubmit = () => { },
+  handleChange = () => { },
+  inputsInfo,
+  error,
+  loading
+}) => {
   return (
     <>
       <div className='header'>
@@ -29,8 +28,8 @@ const FormLogReg: React.FC<FormLogRegProps> = ({ type, inputs, handleSubmit, han
         <h2>INMOBILIARIA</h2>
         <h3>¡Bienvenido!</h3>
       </div>
-      <form action='' {...type === 'login' ? { onSubmit: handleSubmit } : {}}>
-        <Inputs inputs={inputs} inputsInfo={inputsInfo} handleChange={handleChange || (() => { })} />
+      <form action='' onSubmit={handleSubmit}>
+        <Inputs inputs={inputs} inputsInfo={inputsInfo} handleChange={handleChange} />
         {loading && <p>Cargando...</p>}
         {error && <p>{error}</p>}
         {type === 'login'
@@ -61,12 +60,12 @@ const FormLogReg: React.FC<FormLogRegProps> = ({ type, inputs, handleSubmit, han
         {type === 'login'
           ? (
             <p>
-              ¿No tienes cuenta? <span>Regístrate</span>
+              ¿No tienes cuenta? <Link to='/register'>Regístrate</Link>
             </p>
             )
           : (
             <p>
-              ¿Ya tienes cuenta? <span>Inicia sesión</span>
+              ¿Ya tienes cuenta? <Link to='/login'>Inicia sesión</Link>
             </p>
             )}
       </div>
