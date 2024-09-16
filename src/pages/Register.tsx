@@ -6,9 +6,10 @@ const Register: React.FC = () => {
 
   const registerInputs = [
     { id: 'name', label: 'Nombre', type: 'text', name: 'name' },
-    { id: 'surname', label: 'Apellidos', type: 'text', name: 'surname' },
+    { id: 'surname', label: 'Apellido', type: 'text', name: 'surname' },
     { id: 'email', label: 'Correo', type: 'email', name: 'email' },
-    { id: 'password', label: 'Contraseña', type: 'password', name: 'password' }
+    { id: 'password', label: 'Contraseña', type: 'password', name: 'password' },
+    { id: 'password2', label: 'Repetir contraseña', type: 'password', name: 'password2' }
   ]
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
