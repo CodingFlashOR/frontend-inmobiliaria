@@ -97,7 +97,7 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
         userRole: null,
         userUuid: null,
         exp: null,
-        responseError: 'Error de red o servidor'
+        responseError: 'Ocurrío un error inesperado, intentelo de nuevo ma tarde'
       })
       return false
     }
