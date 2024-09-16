@@ -12,13 +12,16 @@
   },
   "dependencies": {
     "concurrently": "^8.2.2",
+    "dotenv": "^16.4.5",
     "jsdom": "^24.0.0",
+    "jwt-decode": "^4.0.0",
     "marked": "^14.1.2",
     "quill": "^2.0.2",
     "quilljs-markdown": "^1.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.21.2"
+    "react-router-dom": "^6.21.2",
+    "zustand": "^4.5.5"
   },
   "devDependencies": {
     "@babel/core": "^7.23.7",

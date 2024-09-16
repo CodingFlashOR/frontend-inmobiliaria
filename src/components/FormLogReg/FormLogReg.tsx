@@ -3,19 +3,25 @@ import Inputs from './components/Inputs'
 import './FormLogReg.css'
 
 interface Input {
-  id: string; // Identificador único
+  id: string;
   label: string;
   placeholder: string;
   type: string;
   icon?: string;
+  name: string;
 }
 
 interface FormLogRegProps {
   type: 'login' | 'register';
   inputs: Input[];
+  handleSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
+  inputsInfo: { [key: string]: string };
+  error?: string;
+  loading?: boolean;
+  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const FormLogReg: React.FC<FormLogRegProps> = ({ type, inputs }) => {
+const FormLogReg: React.FC<FormLogRegProps> = ({ type, inputs, handleSubmit, handleChange, inputsInfo, error, loading }) => {
   return (
     <>
       <div className='header'>
@@ -23,8 +29,10 @@ const FormLogReg: React.FC<FormLogRegProps> = ({ type, inputs }) => {
         <h2>INMOBILIARIA</h2>
         <h3>¡Bienvenido!</h3>
       </div>
-      <form action=''>
-        <Inputs inputs={inputs} />
+      <form action='' {...type === 'login' ? { onSubmit: handleSubmit } : {}}>
+        <Inputs inputs={inputs} inputsInfo={inputsInfo} handleChange={handleChange || (() => { })} />
+        {loading && <p>Cargando...</p>}
+        {error && <p>{error}</p>}
         {type === 'login'
           ? (
             <div>
