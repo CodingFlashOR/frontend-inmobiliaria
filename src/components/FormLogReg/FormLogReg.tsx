@@ -40,7 +40,7 @@ const FormLogReg: React.FC<FormLogRegProps> = ({
             )
           : (
             <div>
-              <input type='checkbox' /> Acepto los términos y condiciones de uso
+              <input type='checkbox' /> Acepto los términos y condiciones de uso.
             </div>
             )}
         {type === 'login'
