@@ -35,10 +35,6 @@ const FormLogReg: React.FC<FormLogRegProps> = ({
         {type === 'login'
           ? (
             <div>
-              <div>
-                <input type='checkbox' />
-                <p>Recordarme</p>
-              </div>
               <div>¿Olvidaste tu contraseña?</div>
             </div>
             )
