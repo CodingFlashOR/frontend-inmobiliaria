@@ -3,12 +3,12 @@ import { devtools } from 'zustand/middleware'
 import { jwtDecode } from 'jwt-decode'
 import { AuthState, LoginResponse, MyToken } from './interfaces'
 
-const URL = import.meta.env.VITE_API_URL
+const URL = import.meta.env.VITE_API_URL_AUTH
+const URLReg = import.meta.env.VITE_API_URL_AUTH_REG
 
 const useAuthStore = create<AuthState>()(devtools((set, get) => ({
   isAuthenticated: false,
   accessToken: null,
-  refreshToken: null,
   user: null,
   userRole: null,
   userUuid: null,
@@ -16,6 +16,115 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
   emailError: null,
   passwordError: null,
   responseError: null,
+  nameError: null,
+  lastNameError: null,
+  confirmPasswordError: null,
+
+  register: async (name: string, lastName: string, email: string, pass: string, pass2: string): Promise<boolean> => {
+    // Validaciones de formulario
+    if (pass !== pass2) {
+      set({ confirmPasswordError: 'Las contraseñas no coinciden' })
+    }
+    if (name === '') {
+      set({ nameError: 'Este campo es requerido' })
+    }
+    if (lastName === '') {
+      set({ lastNameError: 'Este campo es requerido' })
+    }
+    if (email === '') {
+      set({ emailError: 'Este campo es requerido' })
+    }
+    if (pass === '') {
+      set({ passwordError: 'Este campo es requerido' })
+    }
+    if (pass2 === '') {
+      set({ confirmPasswordError: 'Este campo es requerido' })
+    }
+
+    if (name === '' || lastName === '' || email === '' || pass === '' || pass2 === '') {
+      return false
+    }
+
+    try {
+      // Solicitud de registro
+      const response = await fetch(URLReg, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, last_name: lastName, email, password: pass, confirm_password: pass2 })
+      })
+
+      const text = await response.text()
+      let data: LoginResponse | null = null
+
+      try {
+        data = text ? JSON.parse(text) : null
+      } catch (error) {
+        console.error('Error parsing JSON:', error)
+      }
+
+      if (response.ok) {
+        set({
+          emailError: null,
+          passwordError: null,
+          responseError: null,
+          nameError: null,
+          lastNameError: null,
+          confirmPasswordError: null
+        })
+        return true
+      } else {
+        if (response.status === 400) {
+          if (data?.detail && typeof data.detail === 'object') {
+            if ('email' in data.detail && data.detail.email) {
+              set({
+                emailError: data.detail.email[0],
+                responseError: null
+              })
+            }
+            if ('password' in data.detail && data.detail.password) {
+              set({
+                passwordError: data.detail.password[0],
+                responseError: null
+              })
+            }
+            if ('name' in data.detail && data.detail.name) {
+              set({
+                nameError: data.detail.name[0],
+                responseError: null
+              })
+            }
+            if ('last_name' in data.detail && data.detail.last_name) {
+              set({
+                lastNameError: data.detail.last_name[0],
+                responseError: null
+              })
+            }
+            if ('confirm_password' in data.detail && data.detail.confirm_password) {
+              set({
+                confirmPasswordError: data.detail.confirm_password[0],
+                responseError: null
+              })
+            }
+          }
+        } else {
+          set({
+            responseError: typeof data?.detail === 'string' ? data.detail : 'Error desconocido',
+            emailError: null,
+            passwordError: null
+          })
+        }
+        return false
+      }
+    } catch (error) {
+      console.error('Error during registration:', error)
+      set({
+        responseError: 'Ocurrió un error inesperado, intentelo de nuevo más tarde'
+      })
+      return false
+    }
+  },
 
   decodedToken: () => {
     const { accessToken } = get()
@@ -34,7 +143,7 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
 
   login: async (email: string, pass: string): Promise<boolean> => {
     try {
-      const response = await fetch(`${URL}/api/v1/user/jwt/login/`, {
+      const response = await fetch(`${URL}login/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -47,7 +156,6 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
       if (response.ok) {
         set({
           accessToken: data.access_token,
-          refreshToken: data.refresh_token,
           isAuthenticated: true,
           emailError: null,
           passwordError: null,
@@ -60,14 +168,12 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
             if ('email' in data.detail && data.detail.email) {
               set({
                 emailError: data.detail.email[0],
-                passwordError: null,
                 responseError: null
               })
             }
             if ('password' in data.detail && data.detail.password) {
               set({
                 passwordError: data.detail.password[0],
-                emailError: null,
                 responseError: null
               })
             }
@@ -93,7 +199,6 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
         isAuthenticated: false,
         user: null,
         accessToken: null,
-        refreshToken: null,
         userRole: null,
         userUuid: null,
         exp: null,
@@ -102,38 +207,38 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
       return false
     }
   },
+
   updateTokens: async () => {
-    const { refreshToken, accessToken } = get()
+    const { accessToken, decodedToken, exp } = get()
 
     if (!accessToken) {
       return
     }
 
-    const decodedToken = jwtDecode<MyToken>(accessToken)
+    decodedToken()
     const currentTime = Date.now() / 1000
 
-    if (decodedToken.exp > currentTime) {
+    if (currentTime < exp! - 60) {
       return
     }
 
-    const response = await fetch(`${URL}/api/v1/user/jwt/update/`, {
+    const response = await fetch(`${URL}update/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ access_token: accessToken, refresh_token: refreshToken })
+      body: JSON.stringify({ access_token: accessToken })
     })
 
-    const data: { access_token: string; refresh_token: string } = await response.json()
+    const data: { access_token: string } = await response.json()
 
     if (response.ok) {
-      set({ accessToken: data.access_token, refreshToken: data.refresh_token })
+      set({ accessToken: data.access_token })
     } else {
       set({
         isAuthenticated: false,
         user: null,
         accessToken: null,
-        refreshToken: null,
         userRole: null,
         userUuid: null,
         exp: null
@@ -142,30 +247,29 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
   },
 
   logout: async () => {
-    const { refreshToken, updateTokens } = get()
+    const { updateTokens } = get()
 
     if (typeof updateTokens === 'function') {
       await updateTokens()
     }
 
-    await fetch(`${URL}/api/v1/user/jwt/logout/`, {
+    await fetch(`${URL}logout/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ refreshToken })
+      body: JSON.stringify({})
     })
 
     set({
       isAuthenticated: false,
       user: null,
       accessToken: null,
-      refreshToken: null,
       userRole: null,
       userUuid: null,
       exp: null
     })
   }
-}), { name: 'AuthStore' })) // Nombre del store en DevTools
+}), { name: 'AuthStore' }))
 
 export default useAuthStore
