@@ -1,21 +1,12 @@
 import React from 'react'
 import InputComponent from './InputComponent'
+import { InputsProps } from './interfaces'
 
-interface InputProps {
-  id: string;
-  label: string;
-  placeholder: string;
-  type: string;
-  icon?: string;
-  name: string;
-}
-
-interface InputsProps {
-  inputs: InputProps[];
-  inputsInfo: { [key: string]: string };
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
+/**
+ * A component that renders a list of input components.
+ * @param {InputsProps} props - The props for the Inputs component.
+ * @returns {JSX.Element} A list of input components.
+ */
 const Inputs: React.FC<InputsProps> = ({ inputs, inputsInfo, handleChange }) => {
   return (
     <>
@@ -24,12 +15,12 @@ const Inputs: React.FC<InputsProps> = ({ inputs, inputsInfo, handleChange }) => 
           key={input.id}
           id={input.id}
           label={input.label}
-          placeholder={input.placeholder}
           type={input.type}
           icon={input.icon}
           name={input.name}
-          value={inputsInfo[input.name as keyof typeof inputsInfo]}
+          value={inputsInfo[input.name] || ''}
           onChange={handleChange}
+          inputError={input.inputError}
         />
       ))}
     </>

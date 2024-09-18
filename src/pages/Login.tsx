@@ -1,18 +1,33 @@
-import React from 'react'
-import FormLogReg from '../components/FormLogReg/FormLogReg' // Ajusta la ruta según sea necesario
+import React, { useState, useEffect } from 'react'
+import FormLogReg from '../components/FormLogReg/FormLogReg'
 import useAuthStore from '../context/authStore'
 
-const Login: React.FC = () => {
-  const [loginInfo, setLoginInfo] = React.useState({ email: '', password: '' })
-  const [error, setError] = React.useState('')
-  const [loading, setLoading] = React.useState(false)
+interface PropsInput {
+  id: string;
+  label: string;
+  type: string;
+  icon?: string;
+  name: string;
+  inputError?: string | null; // Asegúrate de incluir inputError aquí
+}
 
-  const loginInputs = [
-    { id: 'email', label: 'Email', placeholder: 'arcortoon@gmail.com', type: 'email', name: 'email' },
-    { id: 'password', label: 'Contraseña', placeholder: '********', type: 'password', name: 'password' }
+const Login: React.FC = () => {
+  const [loginInfo, setLoginInfo] = useState({ email: '', password: '' })
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
+
+  const { login, decodedToken, responseError, emailError, passwordError } = useAuthStore()
+
+  const loginInputs: PropsInput[] = [
+    { id: 'email', label: 'Correo', type: 'email', name: 'email', inputError: emailError },
+    { id: 'password', label: 'Contraseña', type: 'password', name: 'password', inputError: passwordError }
   ]
 
-  const { login, decodedToken } = useAuthStore()
+  useEffect(() => {
+    if (responseError && typeof responseError === 'string') {
+      setError(responseError)
+    }
+  }, [responseError])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -34,20 +49,15 @@ const Login: React.FC = () => {
       return
     }
 
-    if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,128}/.test(password)) {
-      setError('La contraseña debe contener al menos una mayúscula, una minúscula y un carácter especial.')
-      setLoading(false)
-      return
-    }
-
     const logging = await login(email, password)
 
     if (!logging) {
-      setError('Email o contraseña incorrectos')
       setLoading(false)
     } else {
       decodedToken()
       setLoginInfo({ email: '', password: '' })
+      setError('')
+      setLoading(false)
     }
   }
 
