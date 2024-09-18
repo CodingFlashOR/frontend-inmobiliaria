@@ -20,6 +20,52 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
   lastNameError: null,
   confirmPasswordError: null,
 
+  start: async () => {
+    const value = `; ${document.cookie}`
+    const parts = value.split('; access_token=')
+    if (parts.length === 2) {
+      const token = parts.pop()?.split(';').shift()
+      if (token) {
+        set({ accessToken: token })
+        get().decodedToken()
+      }
+    }
+  },
+
+  setCookies: (name: string, value: string, days: number) => {
+    const date = new Date()
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000))
+    const expires = 'expires=' + date.toUTCString()
+    document.cookie = `${name}=${value};${expires};path=/;secure;samesite=Strict`
+  },
+
+  getCookies: (name: string) => {
+    const { decodedToken } = get()
+
+    if (!name) {
+      console.warn('Cookie name must be provided')
+      return null
+    }
+
+    const value = `; ${document.cookie}`
+    const parts = value.split(`; ${name}=`)
+
+    if (parts.length === 2) {
+      const cookieValue = parts.pop()?.split(';').shift()
+      if (cookieValue) {
+        set({ accessToken: cookieValue })
+        decodedToken()
+        return cookieValue
+      } else {
+        console.warn(`Cookie value for '${name}' is empty or invalid`)
+        return null
+      }
+    }
+
+    console.warn(`Cookie '${name}' does not exist`)
+    return null
+  },
+
   register: async (name: string, lastName: string, email: string, pass: string, pass2: string): Promise<boolean> => {
     if (pass !== pass2) {
       set({ confirmPasswordError: 'Las contraseñas no coinciden' })
@@ -124,13 +170,21 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
     }
   },
 
-  decodedToken: () => {
-    const { accessToken } = get()
+  decodedToken: async () => {
+    const { accessToken, updateTokens } = get()
     if (!accessToken) {
       return
     }
 
     const decodedToken = jwtDecode<MyToken>(accessToken)
+
+    console.log(decodedToken.exp < Date.now() / 1000)
+
+    if (decodedToken.exp < Date.now() / 1000) {
+      console.log('Token expired, updating...')
+      await updateTokens()
+    }
+
     set({
       isAuthenticated: true,
       exp: decodedToken.exp,
@@ -140,6 +194,8 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
   },
 
   login: async (email: string, pass: string): Promise<boolean> => {
+    const { decodedToken, setCookies } = get()
+
     if (email === '') {
       set({ emailError: 'Este campo es requerido' })
     }
@@ -170,6 +226,7 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
 
       if (response.ok) {
         decodedToken()
+        setCookies('access_token', data.access_token, 1)
         set({
           accessToken: data.access_token,
           isAuthenticated: true,
@@ -225,16 +282,9 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
   },
 
   updateTokens: async () => {
-    const { accessToken, decodedToken, exp } = get()
+    const { accessToken, setCookies } = get()
 
     if (!accessToken) {
-      return
-    }
-
-    decodedToken()
-    const currentTime = Date.now() / 1000
-
-    if (currentTime < exp! - 60) {
       return
     }
 
@@ -249,33 +299,53 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
     const data = await response.json()
 
     if (response.ok) {
+      setCookies('access_token', data.access_token, 1)
       set({ accessToken: data.access_token })
     }
   },
 
   logout: async () => {
-    const { updateTokens } = get()
+    const { setCookies, getCookies, decodedToken } = get()
 
-    if (typeof updateTokens === 'function') {
-      await updateTokens()
+    try {
+      const token = getCookies('access_token')
+      if (!token) {
+        console.error('Token no encontrado')
+        return
+      }
+
+      set({ accessToken: token })
+
+      decodedToken()
+
+      console.log('Access Token antes del logout:', token)
+
+      const response = await fetch(`${URL}logout/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({})
+      })
+
+      if (!response.ok) {
+        throw new Error(`Logout fallido con estado: ${response.status}`)
+      }
+
+      set({
+        isAuthenticated: false,
+        user: null,
+        accessToken: null,
+        userRole: null,
+        userUuid: null,
+        exp: null
+      })
+
+      setCookies('access_token', '', -1)
+    } catch (error) {
+      console.error('Error durante el logout:', error)
     }
-
-    await fetch(`${URL}logout/`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({})
-    })
-
-    set({
-      isAuthenticated: false,
-      user: null,
-      accessToken: null,
-      userRole: null,
-      userUuid: null,
-      exp: null
-    })
   }
 }), { name: 'AuthStore' }))
 
