@@ -16,7 +16,7 @@ const Login: React.FC = () => {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const { login, decodedToken, responseError, emailError, passwordError } = useAuthStore()
+  const { login, responseError, emailError, passwordError } = useAuthStore()
 
   const loginInputs: PropsInput[] = [
     { id: 'email', label: 'Correo', type: 'email', name: 'email', inputError: emailError },
@@ -48,7 +48,6 @@ const Login: React.FC = () => {
     if (!logging) {
       setLoading(false)
     } else {
-      decodedToken()
       setLoginInfo({ email: '', password: '' })
       setError('')
       setLoading(false)

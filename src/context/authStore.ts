@@ -140,6 +140,23 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
   },
 
   login: async (email: string, pass: string): Promise<boolean> => {
+    if (email === '') {
+      set({ emailError: 'Este campo es requerido' })
+    }
+
+    if (pass === '') {
+      set({ passwordError: 'Este campo es requerido' })
+    }
+
+    if (email === '' || pass === '') {
+      return false
+    }
+
+    if (email.includes('@') === false || email.includes('.') === false) {
+      set({ emailError: 'El valor ingresado es inválido' })
+      return false
+    }
+
     try {
       const response = await fetch(`${URL}login/`, {
         method: 'POST',
@@ -152,6 +169,7 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
       const data: LoginResponse = await response.json()
 
       if (response.ok) {
+        decodedToken()
         set({
           accessToken: data.access_token,
           isAuthenticated: true,
@@ -228,19 +246,10 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
       body: JSON.stringify({ access_token: accessToken })
     })
 
-    const data: { access_token: string } = await response.json()
+    const data = await response.json()
 
     if (response.ok) {
       set({ accessToken: data.access_token })
-    } else {
-      set({
-        isAuthenticated: false,
-        user: null,
-        accessToken: null,
-        userRole: null,
-        userUuid: null,
-        exp: null
-      })
     }
   },
 
