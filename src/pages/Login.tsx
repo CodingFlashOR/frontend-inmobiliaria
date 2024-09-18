@@ -43,12 +43,6 @@ const Login: React.FC = () => {
     setLoading(true)
     const { email, password } = loginInfo
 
-    if (!email || !password) {
-      setError('Todos los campos son obligatorios')
-      setLoading(false)
-      return
-    }
-
     const logging = await login(email, password)
 
     if (!logging) {

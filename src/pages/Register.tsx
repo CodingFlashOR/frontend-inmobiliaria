@@ -1,15 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import FormLogReg from '../components/FormLogReg/FormLogReg' // Ajusta la ruta según sea necesario
+import useAuthStore from '../context/authStore'
 
 const Register: React.FC = () => {
-  const [registerInfo, setRegisterInfo] = React.useState({ nameSurname: '', email: '', password: '' })
+  const {
+    register,
+    nameError,
+    lastNameError,
+    emailError,
+    passwordError,
+    confirmPasswordError,
+    responseError
+  } = useAuthStore()
+
+  const [registerInfo, setRegisterInfo] = useState({
+    name: '',
+    surname: '',
+    email: '',
+    password: '',
+    password2: ''
+  })
+
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const registerInputs = [
-    { id: 'name', label: 'Nombre', type: 'text', name: 'name' },
-    { id: 'surname', label: 'Apellido', type: 'text', name: 'surname' },
-    { id: 'email', label: 'Correo', type: 'email', name: 'email' },
-    { id: 'password', label: 'Contraseña', type: 'password', name: 'password' },
-    { id: 'password2', label: 'Repetir contraseña', type: 'password', name: 'password2' }
+    { id: 'name', label: 'Nombre', type: 'text', name: 'name', inputError: nameError },
+    { id: 'surname', label: 'Apellido', type: 'text', name: 'surname', inputError: lastNameError },
+    { id: 'email', label: 'Correo', type: 'email', name: 'email', inputError: emailError },
+    { id: 'password', label: 'Contraseña', type: 'password', name: 'password', inputError: passwordError },
+    { id: 'password2', label: 'Repetir contraseña', type: 'password', name: 'password2', inputError: confirmPasswordError }
   ]
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,12 +40,24 @@ const Register: React.FC = () => {
     }))
   }
 
-  const handleSubmit = () => {
-    console.log('Form submitted')
-  }
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setLoading(true)
+    const { name, surname, email, password, password2 } = registerInfo
 
-  const error = ''
-  const loading = false
+    const resp = await register(name, surname, email, password, password2)
+
+    if (resp) {
+      setError('')
+      setLoading(false)
+    } else {
+      if (typeof responseError === 'string') {
+        setError(responseError)
+      }
+      setLoading(false)
+    }
+    setLoading(false)
+  }
 
   return (
     <div>
