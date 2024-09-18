@@ -64,21 +64,34 @@ Este proyecto tiene como objetivo principal la creación de una plataforma web i
 - `npm run lint`: Ejecuta ESLint en el proyecto, lo que permite identificar y corregir errores de sintaxis y estilo en el código JavaScript en base a la reglas establecidas en el proyecto.
 - `npm run preview`: Este comando proporciona una vista previa de la versión de producción del proyecto. Es útil para verificar el funcionamiento y la apariencia final antes de su despliegue definitivo.
 
-## 5. Contributores
+## 5. Variables de entorno
+
+Para ejecutar este proyecto, necesitas configurar las siguientes variables de entorno:
+
+- `VITE_API_URL`: URL base de la API.
+  - Ejemplo: `https://carlosandresaguirreariza.pythonanywhere.com`
+- `VITE_API_URL_AUTH`: URL para la autenticación JWT.
+  - Ejemplo: `https://carlosandresaguirreariza.pythonanywhere.com/api/v1/auth/jwt/`
+- `VITE_API_URL_AUTH_REG`: URL para la búsqueda de usuarios.
+  - Ejemplo: `https://carlosandresaguirreariza.pythonanywhere.com/api/v1/user/searcher/`
+- `VITE_PORT`: Puerto en el que se ejecutará el servidor de desarrollo.
+  - Ejemplo: `5403`
+
+## 6. Contributores
 Si está interesado en contribuir a este proyecto, consulte nuestra guía [CONTRIBUTING](CONTRIBUTING.md) para obtener información sobre cómo comenzar. Proporciona pautas sobre cómo configurar su entorno de desarrollo, proponer cambios y más. ¡Esperamos sus contribuciones!
 
-## 6. Documentación
+## 7. Documentación
 | Título | Descripción | 
 |----------|----------|
 | [Especifcación de requerimientos](https://writer.zoho.com/writer/open/gvaj1411213d7d4bb4c818860a3bea679ecbb) | Este documento detalla los requerimientos funcionales, no funcionales y el comportamiento de las diferentes interfaces del sistema. |
 | [Base de datos](https://app.diagrams.net/?title=EsquemaDB.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1uJAsYcVnTEviwOq5JZ_q_2VWnpvgPfBd%26export%3Ddownload)   | Esquema de la base de datos del proyecto. |
 | [Documentación de la API](https://carlosandresaguirreariza.pythonanywhere.com/) | Esta es la documentación para la API del proyecto, que incluye detalles sobre los endpoints disponibles y los datos que se pueden enviar y recibir. |
 
-## 7. Repositorios relacionados
+## 8. Repositorios relacionados
 - [Repositorio Principal](https://github.com/CodingFlashOR#11-inmobiliaria-bonpland).
 - [Repositorio Backend](https://github.com/CodingFlashOR/backend-inmobiliaria).
 
-## 8. Colaboradores
+## 9. Colaboradores
 Las siguientes personas son las encargadas de desarrollar este proyecto.
 
 | Nombre | Enlaces | Roles |

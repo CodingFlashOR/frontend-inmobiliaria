@@ -21,7 +21,6 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
   confirmPasswordError: null,
 
   register: async (name: string, lastName: string, email: string, pass: string, pass2: string): Promise<boolean> => {
-    // Validaciones de formulario
     if (pass !== pass2) {
       set({ confirmPasswordError: 'Las contraseñas no coinciden' })
     }
@@ -46,7 +45,6 @@ const useAuthStore = create<AuthState>()(devtools((set, get) => ({
     }
 
     try {
-      // Solicitud de registro
       const response = await fetch(URLReg, {
         method: 'POST',
         headers: {
