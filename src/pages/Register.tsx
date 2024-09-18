@@ -12,6 +12,7 @@ const Register: React.FC = () => {
     confirmPasswordError,
     responseError
   } = useAuthStore()
+
   const [registerInfo, setRegisterInfo] = useState({
     name: '',
     surname: '',
@@ -45,6 +46,7 @@ const Register: React.FC = () => {
     const { name, surname, email, password, password2 } = registerInfo
 
     const resp = await register(name, surname, email, password, password2)
+
     if (resp) {
       setError('')
       setLoading(false)

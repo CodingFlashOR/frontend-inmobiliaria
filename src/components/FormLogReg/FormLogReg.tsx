@@ -45,10 +45,10 @@ const FormLogReg: React.FC<FormLogRegProps> = ({
             )}
         {type === 'login'
           ? (
-            <button>Iniciar sesión</button>
+            <button disabled={loading}>Iniciar sesión</button>
             )
           : (
-            <button>Registrarse</button>
+            <button disabled={loading}>Registrarse</button>
             )}
       </form>
 
