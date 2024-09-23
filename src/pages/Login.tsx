@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom' // Importar Link
 import FormLogReg from '../components/FormLogReg/FormLogReg'
 import useAuthStore from '../context/authStore'
 
@@ -8,15 +9,14 @@ interface PropsInput {
   type: string;
   icon?: string;
   name: string;
-  inputError?: string | null; // Asegúrate de incluir inputError aquí
+  inputError?: string | null;
 }
 
 const Login: React.FC = () => {
+  const { login, responseError, emailError, passwordError } = useAuthStore()
   const [loginInfo, setLoginInfo] = useState({ email: '', password: '' })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
-
-  const { login, decodedToken, responseError, emailError, passwordError } = useAuthStore()
 
   const loginInputs: PropsInput[] = [
     { id: 'email', label: 'Correo', type: 'email', name: 'email', inputError: emailError },
@@ -45,10 +45,11 @@ const Login: React.FC = () => {
 
     const logging = await login(email, password)
 
+    console.log('logging', logging)
+
     if (!logging) {
       setLoading(false)
     } else {
-      decodedToken()
       setLoginInfo({ email: '', password: '' })
       setError('')
       setLoading(false)
@@ -58,6 +59,9 @@ const Login: React.FC = () => {
   return (
     <div>
       <FormLogReg type='login' inputs={loginInputs} handleChange={handleChange} handleSubmit={handleSubmit} inputsInfo={loginInfo} error={error} loading={loading} />
+      <Link to='/'>
+        <button>Volver a Home</button>
+      </Link>
     </div>
   )
 }
