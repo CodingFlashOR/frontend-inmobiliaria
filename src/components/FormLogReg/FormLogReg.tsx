@@ -1,21 +1,26 @@
 import React from 'react'
-import Inputs from './components/Inputs'
+import { Link } from 'react-router-dom'
+
+import Inputs from '../Inputs/Inputs'
+import { FormLogRegProps } from './interfaces'
+
 import './FormLogReg.css'
 
-interface Input {
-  id: string; // Identificador único
-  label: string;
-  placeholder: string;
-  type: string;
-  icon?: string;
-}
-
-interface FormLogRegProps {
-  type: 'login' | 'register';
-  inputs: Input[];
-}
-
-const FormLogReg: React.FC<FormLogRegProps> = ({ type, inputs }) => {
+/**
+ * FormLogReg Component
+ * A form component for login and registration purposes.
+ * @param props - The props for the component.
+ * @returns The rendered form component.
+ */
+const FormLogReg: React.FC<FormLogRegProps> = ({
+  type,
+  inputs,
+  handleSubmit = () => { },
+  handleChange = () => { },
+  inputsInfo,
+  error,
+  loading
+}) => {
   return (
     <>
       <div className='header'>
@@ -23,29 +28,27 @@ const FormLogReg: React.FC<FormLogRegProps> = ({ type, inputs }) => {
         <h2>INMOBILIARIA</h2>
         <h3>¡Bienvenido!</h3>
       </div>
-      <form action=''>
-        <Inputs inputs={inputs} />
+      <form action='' onSubmit={handleSubmit}>
+        <Inputs inputs={inputs} inputsInfo={inputsInfo} handleChange={handleChange} />
+        {loading && <p>Cargando...</p>}
+        {error && <p>{error}</p>}
         {type === 'login'
           ? (
             <div>
-              <div>
-                <input type='checkbox' />
-                <p>Recordarme</p>
-              </div>
               <div>¿Olvidaste tu contraseña?</div>
             </div>
             )
           : (
             <div>
-              <input type='checkbox' /> Acepto los términos y condiciones de uso
+              <input type='checkbox' /> Acepto los términos y condiciones de uso.
             </div>
             )}
         {type === 'login'
           ? (
-            <button>Iniciar sesión</button>
+            <button disabled={loading}>Iniciar sesión</button>
             )
           : (
-            <button>Registrarse</button>
+            <button disabled={loading}>Registrarse</button>
             )}
       </form>
 
@@ -53,12 +56,12 @@ const FormLogReg: React.FC<FormLogRegProps> = ({ type, inputs }) => {
         {type === 'login'
           ? (
             <p>
-              ¿No tienes cuenta? <span>Regístrate</span>
+              ¿No tienes cuenta? <Link to='/register'>Regístrate</Link>
             </p>
             )
           : (
             <p>
-              ¿Ya tienes cuenta? <span>Inicia sesión</span>
+              ¿Ya tienes cuenta? <Link to='/login'>Inicia sesión</Link>
             </p>
             )}
       </div>
